@@ -12,11 +12,10 @@
     teal      #0E7C6B
 
   THINGS TO FILL IN LATER
-    - The AI section is the thinnest part of the public story. Ship 2-3 AI repos
-      (agent harness, a RAG service, an n8n workflow pack) and link them here.
     - Push Siddheshwari Investment to a public repo and link it in the table.
-    - Pin: citrine-growth, detonator, portfolio, DSA, GushWorks
-      (profile -> Customize your pins).
+    - Pin these six: agent-harness, rag-service, citrine-growth, detonator,
+      portfolio, DSA (profile -> Customize your pins).
+    - An n8n workflow pack would round out the AI section.
 -->
 
 <p align="center">
@@ -100,6 +99,15 @@ The part of my work I'd happily talk about all day. I build the systems around m
   <img src="https://img.shields.io/badge/Agentic_Workflows-4F46E5?style=for-the-badge&logoColor=white" alt="Agentic Workflows" />
 </p>
 
+### 📦 Open source
+
+The work above lives in a private codebase, so here are the same ideas, in public and runnable.
+
+| Repo | What it is | Built with |
+| --- | --- | --- |
+| **[agent-harness](https://github.com/Dhairya-007/agent-harness)** | A typed agent harness for Claude. The loop is the easy part — this is the rest: tool inputs validated before they run, approval gates over parsed arguments, a context budget that clears old tool output, a verification pass that can send the model back, and distinct errors for refusal, truncated tool input and context overflow. 39 tests, no network. | TypeScript · Zod · Anthropic SDK |
+| **[rag-service](https://github.com/Dhairya-007/rag-service)** | Grounded document Q&A. Hybrid BM25 + dense retrieval fused by rank, a NestJS API and a Next.js UI. Retrieval is a *tool the model calls repeatedly*, not a prompt prefix, and an answer that cites nothing is rejected and sent back. 52 tests. | NestJS · Next.js · TypeScript · agent-harness |
+
 ### How I think about agent systems
 
 ```mermaid
@@ -140,6 +148,8 @@ flowchart LR
 
 | Project | What it is | Stack | Links |
 | --- | --- | --- | --- |
+| **rag-service** | Grounded document Q&A — hybrid retrieval, a NestJS API and a Next.js UI, with answers that cite their sources. | NestJS · Next.js · TypeScript | [Code](https://github.com/Dhairya-007/rag-service) |
+| **agent-harness** | A typed agent harness for Claude: validated tool inputs, approval gates, context budgeting and a readable trace. | TypeScript · Zod · Anthropic SDK | [Code](https://github.com/Dhairya-007/agent-harness) |
 | **Citrine Growth** | A digital agency platform — marketing site plus a full admin panel, with dual light/dark theming throughout. | Next.js 14 · NestJS · Prisma · PostgreSQL | [Code](https://github.com/Dhairya-007/citrine-growth) |
 | **Detonate the Bomb** | A browser puzzle game: 50 hand-built levels, instruction-driven gameplay, timer system, scoring and level progression, all client-side. | Next.js · TypeScript · CSS3 | [Live](https://detonatebomb.netlify.app/) · [Code](https://github.com/Dhairya-007/detonator) |
 | **Portfolio** | A single-page portfolio built as a Formula 1 racing dashboard — 10+ custom animations, dynamic gauges, interactive navigation, responsive to phone width. | Next.js · TypeScript · CSS animations | [Live](https://dhairyaoza007.netlify.app/) · [Code](https://github.com/Dhairya-007/portfolio) |
@@ -303,7 +313,7 @@ flowchart LR
 ## 🌱 Right now
 
 - 🤖 **Building agentic tooling into daily engineering.** n8n orchestration, a custom LLM agent harness, and frameworks like BMAD and GSD — the goal is an agent that reliably finishes a task, not one that demos well.
-- 🔍 **Going deeper on RAG and retrieval.** Chunking strategies, vector search, and how much context is actually worth paying for.
+- 🔍 **Going deeper on RAG and retrieval.** Chunking strategies, hybrid search and rank fusion, and how much context is actually worth paying for — most of it ends up in [rag-service](https://github.com/Dhairya-007/rag-service).
 - ⚙️ **Scaling the backend.** Event-driven architecture, concurrency and fault tolerance, for when sensor data arrives faster than one service can handle.
 - 🧩 **Keeping fundamentals sharp** in [my DSA repo](https://github.com/Dhairya-007/DSA).
 
