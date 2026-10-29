@@ -20,7 +20,7 @@
 -->
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1020,50:4F46E5,100:7C3AED&height=200&section=header&text=Hi%2C%20I%27m%20Dhairya&fontColor=ffffff&fontSize=46&fontAlignY=36&desc=Full-Stack%20Engineer%20%C2%B7%20AI%20%26%20Agentic%20Systems&descAlignY=56&descSize=18" alt="Hi, I'm Dhairya" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1020,50:4F46E5,100:7C3AED&height=200&section=header&text=Hi%2C%20I%27m%20Dhairya&fontColor=ffffff&fontSize=46&fontAlignY=36&desc=Full-Stack%20Engineer%20%C2%B7%20AI%20and%20Agentic%20Systems&descAlignY=56&descSize=18" alt="Hi, I'm Dhairya" />
 </p>
 
 <p align="center">
