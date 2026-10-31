@@ -42,9 +42,9 @@ I'm a **full-stack engineer** at **Halma plc**, building the whole path: Postgre
 
 The half I'm most interested in right now is **AI in the engineering loop**. I've built a custom **LLM agent harness** and **n8n** automation that my team uses daily, and I work with RAG, vector search and agentic frameworks like BMAD and GSD. Not models — systems: the orchestration, the tool layer, the retrieval, and the glue that makes an agent useful instead of impressive.
 
-The other half is **hardware-facing**: I'm the primary developer on **SyncIT**, the cross-platform platform that manages Sensit's gas-detection instruments over BLE, Wi-Fi, LAN and serial on Android, iOS and Windows.
+The other half of my work is hardware-facing. I'm the primary developer on **SyncIT**, the application that manages Sensit's gas-detection instruments over BLE, Wi-Fi, LAN and serial, on Android, iOS and Windows from one Flutter codebase.
 
-Alongside both, I mentor juniors and colleagues, and work with the PM and engineering manager in **Wrike** to keep scope, task sizing and distribution clean — a tidy board is the cheapest performance optimization a team gets.
+I also mentor juniors and colleagues on the codebase, and work with the project manager and engineering manager in **Wrike** on task breakdown, sizing and distribution.
 
 I studied Computer Science at **SVNIT Surat**, graduating in 2024 ranked 5th of 135 with a 9.19 CGPA.
 
@@ -127,24 +127,24 @@ I'm the **primary developer** on it, working with a **25–30 person team** acro
 - Structured it as a **Melos monorepo** with two product variants on a shared core package and a dedicated **log-parsing SDK**.
 - Built the **device communication modules** — **BLE** for gas-detection instruments, and **Wi-Fi, LAN and serial** for calibration stations — covering log download, parsing, visualization, firmware update workflows and multi-format export.
 - Suggested and built a **settings application for three instruments**, with an automated BLE update flow across **50 settings**. Working with the firmware team, this cut manual production effort by about **99%**.
-- **Performance:** redesigned the database schema and rewrote the hot queries for **30–35% faster** app performance — large log sets now open, chart and export without the app stalling on them.
-- **Robustness:** built the **offline-first ObjectBox store** with bidirectional cloud sync and automatic reconciliation on reconnect, so dropped connections, partial transfers and field use with no network are ordinary states rather than failures.
-- Built the data-heavy surfaces on top of it — real-time charts, Gantt timeline views and multi-template report generation.
+- **Performance:** redesigned the database schema and rewrote the heaviest queries, improving app performance by about **30–35%**, most of it on large log sets.
+- **Robustness:** built the **offline-first ObjectBox store** with bidirectional cloud sync and automatic reconciliation on reconnect, so the app stays usable with no network and resolves conflicts once it is back.
+- Built the data-heavy screens on top of it: real-time charts, Gantt timeline views and multi-template report generation.
 - Reworked the app's **UI, navigation flow and data visualization**, creating the wireframes with the engineering manager.
 - Built **Windows-scheduled reporting** for LAN-connected devices, with customizable export configurations.
-- **Own the full release pipeline** — build generation, versioning, packaging and distribution on every platform, automated end to end so a release is a pipeline run rather than an afternoon.
+- **Own the full release pipeline**: build generation, versioning, packaging and distribution on every platform.
 
 **Beyond the code**
 
-- **Mentoring.** Guide juniors and colleagues through the codebase — code review, pairing on the BLE and parsing layers, and the architectural *why* behind the monorepo, so the patterns survive after whoever wrote them moves on.
-- **Clean product management.** Work with the project manager and engineering manager in **Wrike** to break epics into properly sized tasks, distribute them across the team by strength rather than by whoever is free, and keep estimates, dependencies and status honest — so the board reflects reality and nothing silently blocks a release.
-- **DevOps.** CI/CD and release automation across Android, iOS and Windows on **Azure DevOps**, with versioning and packaging scripted, plus **n8n** automation for the repetitive engineering work around it.
-- Work across **three sites and time zones** (Ahmedabad, Valparaiso, Bolzano), which mostly means writing things down well enough that the next working day starts without a meeting.
+- **Mentoring.** Mentor juniors and colleagues on the codebase: code review, pairing on the BLE and log-parsing layers, and walkthroughs of how the monorepo and shared core fit together.
+- **Product management.** Work with the project manager and engineering manager in **Wrike**: breaking epics into sized tasks, distributing them across the team, and tracking estimates, dependencies and status through each release.
+- **DevOps.** CI/CD and release automation for Android, iOS and Windows on **Azure DevOps**, with versioning and packaging scripted, plus **n8n** workflows for repetitive engineering tasks.
+- Work across **three sites and time zones** — Ahmedabad, Valparaiso and Bolzano — which is most of why the design decisions and release notes are written down rather than discussed in a call.
 
 | Variant | Who it's for | What it does |
 | --- | --- | --- |
-| **SyncIT Lite** | Field evaluation | Offline-first — connect to an instrument, pull logs, parse, visualize and export, with no cloud in the loop |
-| **SyncIT Plus** | Fleet and compliance teams | Everything in Lite plus cloud sync, advanced reporting and premium integrations |
+| **SyncIT Lite** | Field evaluation | Offline-first: connect to an instrument, download logs, parse, visualize and export |
+| **SyncIT Plus** | Fleet and compliance teams | Everything in Lite, plus cloud sync, advanced reporting and premium integrations |
 
 **Stack:** Flutter · Dart · Melos · ObjectBox · BLE · Wi-Fi, LAN and serial · Azure DevOps CI/CD · Wrike · n8n · Claude Code
 
@@ -319,7 +319,7 @@ flowchart LR
 
 ## 📱 Earlier client work
 
-Before SyncIT, the same hardware problem in two other stacks:
+Earlier instrument-facing clients, before SyncIT:
 
 - **.NET MAUI settings application** — configures ~50 instrument parameters through a guided UI, packaged as byte arrays written over BLE.
 - **React Native app** — BLE data download, SQLite persistence and cloud sync across Android and iOS from one shared codebase, **40% less** development effort.
@@ -376,7 +376,7 @@ Agent harness · RAG · Vector search · Prompt engineering · Tool calling · B
   <img src="https://skillicons.dev/icons?i=docker,kubernetes,azure,aws,jenkins,git,github,netlify,postman&perline=9" alt="Cloud and DevOps" />
 </p>
 
-Azure DevOps · CI/CD · Multi-platform release pipelines (Android, iOS, Windows) · Wrike · Jira-style sprint planning and task distribution
+Azure DevOps · CI/CD · Multi-platform release pipelines (Android, iOS, Windows) · Wrike · Sprint planning and task distribution
 
 ---
 
@@ -435,7 +435,7 @@ flowchart LR
 
 - 🤖 **Building agentic tooling into daily engineering.** n8n orchestration, a custom LLM agent harness, and frameworks like BMAD and GSD — the goal is an agent that reliably finishes a task, not one that demos well.
 - 🔍 **Going deeper on RAG and retrieval.** Chunking strategies, hybrid search and rank fusion, and how much context is actually worth paying for — most of it ends up in [rag-service](https://github.com/Dhairya-007/rag-service).
-- 📡 **Growing SyncIT past its MVP.** Two product variants on one Melos monorepo, a log-parsing SDK, and device communication that has to be right the first time — the instrument is in someone's hand in the field.
+- 📡 **Growing SyncIT past its MVP.** Two product variants on one Melos monorepo, a shared core package, a log-parsing SDK, and the device communication layer underneath both.
 - ⚙️ **Scaling the backend.** Event-driven architecture, concurrency and fault tolerance, for when sensor data arrives faster than one service can handle.
 - 🧩 **Keeping fundamentals sharp** in [my DSA repo](https://github.com/Dhairya-007/DSA).
 
