@@ -3,7 +3,7 @@
   Lives at github.com/Dhairya-007/Dhairya-007 — this file renders on the profile page.
 
   Positioning: full-stack engineer who builds AI into the stack.
-  Frontend and backend lead; the cross-platform client work sits further down.
+  Frontend and backend lead; SyncIT (the cross-platform Sensit product) sits right after it.
 
   Palette (keep these consistent if you edit):
     deep navy #0B1020
@@ -24,7 +24,7 @@
 
 <p align="center">
   <a href="https://github.com/Dhairya-007">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=7C3AED&center=true&vCenter=true&width=700&lines=Full-stack+engineer+at+Halma+plc;Angular+%C2%B7+Next.js+%C2%B7+NestJS+%C2%B7+PostgreSQL+%C2%B7+Kafka;I+build+LLM+agents+and+automation+into+the+stack;RAG%2C+agent+harnesses+and+n8n+orchestration;From+the+database+to+the+dashboard" alt="Typing intro" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=7C3AED&center=true&vCenter=true&width=700&lines=Full-stack+engineer+at+Halma+plc;Angular+%C2%B7+Next.js+%C2%B7+NestJS+%C2%B7+PostgreSQL+%C2%B7+Kafka;Primary+dev+on+SyncIT+%E2%80%94+Flutter+for+gas-detection+hardware;I+build+LLM+agents+and+automation+into+the+stack;RAG%2C+agent+harnesses+and+n8n+orchestration;From+the+database+to+the+dashboard" alt="Typing intro" />
   </a>
 </p>
 
@@ -42,6 +42,10 @@ I'm a **full-stack engineer** at **Halma plc**, building the whole path: Postgre
 
 The half I'm most interested in right now is **AI in the engineering loop**. I've built a custom **LLM agent harness** and **n8n** automation that my team uses daily, and I work with RAG, vector search and agentic frameworks like BMAD and GSD. Not models — systems: the orchestration, the tool layer, the retrieval, and the glue that makes an agent useful instead of impressive.
 
+The other half is **hardware-facing**: I'm the primary developer on **SyncIT**, the cross-platform platform that manages Sensit's gas-detection instruments over BLE, Wi-Fi, LAN and serial on Android, iOS and Windows.
+
+Alongside both, I mentor juniors and colleagues, and work with the PM and engineering manager in **Wrike** to keep scope, task sizing and distribution clean — a tidy board is the cheapest performance optimization a team gets.
+
 I studied Computer Science at **SVNIT Surat**, graduating in 2024 ranked 5th of 135 with a 9.19 CGPA.
 
 <p align="left">
@@ -49,6 +53,8 @@ I studied Computer Science at **SVNIT Surat**, graduating in 2024 ranked 5th of 
   <img src="https://img.shields.io/badge/AI_%26_Agents-7C3AED?style=flat-square&logoColor=white" alt="AI and Agents" />
   <img src="https://img.shields.io/badge/Distributed_Systems-0E7C6B?style=flat-square&logoColor=white" alt="Distributed Systems" />
   <img src="https://img.shields.io/badge/Cloud_%26_DevOps-C98A12?style=flat-square&logoColor=white" alt="Cloud and DevOps" />
+  <img src="https://img.shields.io/badge/Cross--Platform-02569B?style=flat-square&logoColor=white" alt="Cross-platform" />
+  <img src="https://img.shields.io/badge/Mentoring-0B1020?style=flat-square&logoColor=white" alt="Mentoring" />
 </p>
 
 ---
@@ -74,6 +80,119 @@ A platform that ingests high-volume sensor data and puts it in front of customer
 
 **Performance**
 - Refactored data-intensive modules and optimized LiteDB queries in a legacy UWP desktop app — reports and grids load up to **75% faster**.
+
+---
+
+## 📱 SyncIT · instrument management platform
+
+### 🛰️ Cross-platform product for gas-detection instruments · `Flutter` `Dart` `Melos` `ObjectBox`
+
+`Sensit Technologies · Halma India` &nbsp; `2025 – present` &nbsp; `Android · iOS · Windows`
+
+<p align="left">
+  <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white" alt="Flutter" />
+  <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="Dart" />
+  <img src="https://img.shields.io/badge/BLE-0082FC?style=for-the-badge&logo=bluetooth&logoColor=white" alt="BLE" />
+  <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" alt="Android" />
+  <img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=white" alt="iOS" />
+  <img src="https://img.shields.io/badge/Windows-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Windows" />
+</p>
+
+<p align="left">
+  <img src="https://img.shields.io/badge/manual_effort_removed-99%25-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="99 percent of manual effort removed" />
+  <img src="https://img.shields.io/badge/app_performance-30--35%25_faster-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="30 to 35 percent faster" />
+  <img src="https://img.shields.io/badge/settings_automated-50_per_instrument-4F46E5?style=for-the-badge&labelColor=0B1020" alt="50 settings automated per instrument" />
+  <img src="https://img.shields.io/badge/legacy_apps-consolidated_into_1-7C3AED?style=for-the-badge&labelColor=0B1020" alt="Several legacy apps consolidated into one product" />
+</p>
+
+<table>
+  <tr>
+    <td align="center"><b>−99%</b><br/><sub>manual production<br/>effort removed</sub></td>
+    <td align="center"><b>30–35%</b><br/><sub>faster after schema<br/>and query work</sub></td>
+    <td align="center"><b>50</b><br/><sub>instrument settings<br/>pushed automatically</sub></td>
+    <td align="center"><b>4</b><br/><sub>transports: BLE, Wi-Fi<br/>LAN, serial</sub></td>
+    <td align="center"><b>3</b><br/><sub>platforms from<br/>one codebase</sub></td>
+    <td align="center"><b>2</b><br/><sub>product variants,<br/>one shared core</sub></td>
+    <td align="center"><b>25–30</b><br/><sub>person team across<br/>3 countries</sub></td>
+  </tr>
+</table>
+
+[Sensit](https://sensit-tech.com/gas-leak-detection-software/) has made gas-detection instruments for utilities, firefighters and hazmat teams for over 40 years. **SyncIT** is its next-generation instrument management platform, consolidating several older Sensit applications into one cross-platform product.
+
+I'm the **primary developer** on it, working with a **25–30 person team** across software, firmware, hardware, QA, project management and marketing, split between **Ahmedabad**, **Valparaiso (Indiana)** and **Bolzano (Italy)**.
+
+**What I did**
+
+- Took SyncIT from a **proof of concept to a production-ready MVP**, and have kept evolving it since through new features, architectural improvements and client-driven changes.
+- Structured it as a **Melos monorepo** with two product variants on a shared core package and a dedicated **log-parsing SDK**.
+- Built the **device communication modules** — **BLE** for gas-detection instruments, and **Wi-Fi, LAN and serial** for calibration stations — covering log download, parsing, visualization, firmware update workflows and multi-format export.
+- Suggested and built a **settings application for three instruments**, with an automated BLE update flow across **50 settings**. Working with the firmware team, this cut manual production effort by about **99%**.
+- **Performance:** redesigned the database schema and rewrote the hot queries for **30–35% faster** app performance — large log sets now open, chart and export without the app stalling on them.
+- **Robustness:** built the **offline-first ObjectBox store** with bidirectional cloud sync and automatic reconciliation on reconnect, so dropped connections, partial transfers and field use with no network are ordinary states rather than failures.
+- Built the data-heavy surfaces on top of it — real-time charts, Gantt timeline views and multi-template report generation.
+- Reworked the app's **UI, navigation flow and data visualization**, creating the wireframes with the engineering manager.
+- Built **Windows-scheduled reporting** for LAN-connected devices, with customizable export configurations.
+- **Own the full release pipeline** — build generation, versioning, packaging and distribution on every platform, automated end to end so a release is a pipeline run rather than an afternoon.
+
+**Beyond the code**
+
+- **Mentoring.** Guide juniors and colleagues through the codebase — code review, pairing on the BLE and parsing layers, and the architectural *why* behind the monorepo, so the patterns survive after whoever wrote them moves on.
+- **Clean product management.** Work with the project manager and engineering manager in **Wrike** to break epics into properly sized tasks, distribute them across the team by strength rather than by whoever is free, and keep estimates, dependencies and status honest — so the board reflects reality and nothing silently blocks a release.
+- **DevOps.** CI/CD and release automation across Android, iOS and Windows on **Azure DevOps**, with versioning and packaging scripted, plus **n8n** automation for the repetitive engineering work around it.
+- Work across **three sites and time zones** (Ahmedabad, Valparaiso, Bolzano), which mostly means writing things down well enough that the next working day starts without a meeting.
+
+| Variant | Who it's for | What it does |
+| --- | --- | --- |
+| **SyncIT Lite** | Field evaluation | Offline-first — connect to an instrument, pull logs, parse, visualize and export, with no cloud in the loop |
+| **SyncIT Plus** | Fleet and compliance teams | Everything in Lite plus cloud sync, advanced reporting and premium integrations |
+
+**Stack:** Flutter · Dart · Melos · ObjectBox · BLE · Wi-Fi, LAN and serial · Azure DevOps CI/CD · Wrike · n8n · Claude Code
+
+<p align="left">
+  <img src="https://img.shields.io/badge/Azure_DevOps-0078D7?style=flat-square&logo=azuredevops&logoColor=white" alt="Azure DevOps" />
+  <img src="https://img.shields.io/badge/Wrike-08CF5D?style=flat-square&logo=wrike&logoColor=white" alt="Wrike" />
+  <img src="https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white" alt="n8n" />
+  <img src="https://img.shields.io/badge/Claude_Code-D97757?style=flat-square&logo=claude&logoColor=white" alt="Claude Code" />
+  <img src="https://img.shields.io/badge/Mentoring_%26_task_distribution-C98A12?style=flat-square&logoColor=white" alt="Mentoring and task distribution" />
+</p>
+
+```mermaid
+flowchart LR
+    INST[Gas-detection<br/>instruments]
+    CAL[Calibration<br/>stations]
+    BLE[BLE layer]
+    NET[Wi-Fi · LAN · serial]
+    SDK[Log-parsing SDK]
+    CORE[Shared core package<br/>Melos monorepo]
+    DB[(ObjectBox<br/>offline-first)]
+    CLOUD[(Cloud sync)]
+    LITE[SyncIT Lite<br/>Android · iOS · Windows]
+    PLUS[SyncIT Plus<br/>reporting · integrations]
+    OUT[Charts · reports · exports<br/>firmware updates · settings]
+
+    INST --> BLE
+    CAL --> NET
+    BLE --> SDK
+    NET --> SDK
+    SDK --> CORE
+    CORE <--> DB
+    CORE --> LITE
+    CORE --> PLUS
+    PLUS <--> CLOUD
+    LITE --> OUT
+    PLUS --> OUT
+
+    classDef hw fill:#0B1020,stroke:#0B1020,color:#fff
+    classDef link fill:#4F46E5,stroke:#4F46E5,color:#fff
+    classDef data fill:#0E7C6B,stroke:#0E7C6B,color:#fff
+    classDef app fill:#7C3AED,stroke:#7C3AED,color:#fff
+    classDef out fill:#C98A12,stroke:#C98A12,color:#fff
+    class INST,CAL hw
+    class BLE,NET,SDK link
+    class CORE,DB,CLOUD data
+    class LITE,PLUS app
+    class OUT out
+```
 
 ---
 
@@ -198,15 +317,16 @@ flowchart LR
 
 ---
 
-## 📱 Also: cross-platform client work
+## 📱 Earlier client work
 
-The front end of that platform isn't only a browser. At Halma I also lead the mobile and desktop clients that talk to the hardware directly:
+Before SyncIT, the same hardware problem in two other stacks:
 
-- **Flutter app** for Sensit gas-detection instruments — a multi-protocol connectivity layer (BLE, Wi-Fi, LAN, serial), an **offline-first ObjectBox store** with bidirectional cloud sync and automatic reconciliation on reconnect, real-time charts, Gantt timeline views, multi-template report generation, firmware updates and calibration workflows. I shipped the foundational MVP.
-- **.NET MAUI settings application** — configures ~50 instrument parameters through a guided UI, packaged as byte arrays written over BLE. Removed **over 99%** of manual configuration effort.
+- **.NET MAUI settings application** — configures ~50 instrument parameters through a guided UI, packaged as byte arrays written over BLE.
 - **React Native app** — BLE data download, SQLite persistence and cloud sync across Android and iOS from one shared codebase, **40% less** development effort.
 
-### 🏦 Earlier: test automation at Barclays
+---
+
+## 🏦 Before Halma: test automation at Barclays
 
 `Business Analyst (BA4) Intern` &nbsp; `Pune, 2023`
 
@@ -219,10 +339,10 @@ Built an automated testing framework with **Java** and **Selenium WebDriver** th
 **Frontend**
 
 <p align="left">
-  <img src="https://skillicons.dev/icons?i=angular,react,nextjs,ts,js,html,css&perline=7" alt="Frontend" />
+  <img src="https://skillicons.dev/icons?i=angular,react,nextjs,flutter,dart,ts,js,html,css&perline=9" alt="Frontend" />
 </p>
 
-HighCharts · React Native · Responsive and cross-browser work
+HighCharts · Flutter · React Native · .NET MAUI · Responsive and cross-browser work
 
 **Backend**
 
@@ -238,7 +358,7 @@ REST APIs · Microservices · Message queues · BullMQ · ASP.NET
   <img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,redis,kafka,sqlite&perline=6" alt="Data and messaging" />
 </p>
 
-SQL Server · LiteDB · ObjectBox · Vector search
+SQL Server · LiteDB · ObjectBox · Vector search · Melos monorepos
 
 **AI and LLM**
 
@@ -256,7 +376,7 @@ Agent harness · RAG · Vector search · Prompt engineering · Tool calling · B
   <img src="https://skillicons.dev/icons?i=docker,kubernetes,azure,aws,jenkins,git,github,netlify,postman&perline=9" alt="Cloud and DevOps" />
 </p>
 
-Azure DevOps · CI/CD · Flutter and .NET MAUI for client work
+Azure DevOps · CI/CD · Multi-platform release pipelines (Android, iOS, Windows) · Wrike · Jira-style sprint planning and task distribution
 
 ---
 
@@ -267,8 +387,8 @@ timeline
     2020 : AIR 8886 (99.22 percentile) in JEE Mains : Started B.Tech CSE at SVNIT Surat
     2023 : Business Analyst intern at Barclays, Pune : Java and Selenium test automation
     2024 : Graduated 5th of 135 with a 9.19 CGPA : Joined Halma plc as a Software Engineer
-    2025 : Shipped cross-platform clients for Sensit instruments : Built the .NET MAUI settings tool
-    2026 : Backend and dashboards on NestJS, Kafka and Angular : LLM agent harness and n8n automation for the team
+    2025 : Primary developer on SyncIT for Sensit instruments : Proof of concept to production-ready MVP
+    2026 : SyncIT Lite and Plus on a Melos monorepo : Backend and dashboards on NestJS, Kafka and Angular : LLM agent harness and n8n automation for the team
 ```
 
 ---
@@ -292,8 +412,9 @@ flowchart LR
     S --- S1[Event-driven<br/>architecture]
     S --- S2[Kafka and queues]
     S --- S3[Kubernetes]
+    S --- S4[Release pipelines<br/>and DevOps]
     O --- O1[Formula 1]
-    O --- O2[Teaching juniors]
+    O --- O2[Mentoring juniors<br/>and colleagues]
     O --- O3[Hackathons]
 
     classDef root fill:#0B1020,stroke:#0B1020,color:#fff
@@ -304,7 +425,7 @@ flowchart LR
     class U root
     class A,A1,A2,A3,A4 ai
     class F,F1,F2,F3 full
-    class S,S1,S2,S3 sys
+    class S,S1,S2,S3,S4 sys
     class O,O1,O2,O3 off
 ```
 
@@ -314,6 +435,7 @@ flowchart LR
 
 - 🤖 **Building agentic tooling into daily engineering.** n8n orchestration, a custom LLM agent harness, and frameworks like BMAD and GSD — the goal is an agent that reliably finishes a task, not one that demos well.
 - 🔍 **Going deeper on RAG and retrieval.** Chunking strategies, hybrid search and rank fusion, and how much context is actually worth paying for — most of it ends up in [rag-service](https://github.com/Dhairya-007/rag-service).
+- 📡 **Growing SyncIT past its MVP.** Two product variants on one Melos monorepo, a log-parsing SDK, and device communication that has to be right the first time — the instrument is in someone's hand in the field.
 - ⚙️ **Scaling the backend.** Event-driven architecture, concurrency and fault tolerance, for when sensor data arrives faster than one service can handle.
 - 🧩 **Keeping fundamentals sharp** in [my DSA repo](https://github.com/Dhairya-007/DSA).
 
