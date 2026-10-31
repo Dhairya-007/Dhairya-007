@@ -101,7 +101,7 @@ A platform that ingests high-volume sensor data and puts it in front of customer
 <p align="left">
   <img src="https://img.shields.io/badge/manual_effort_removed-99%25-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="99 percent of manual effort removed" />
   <img src="https://img.shields.io/badge/app_performance-30--35%25_faster-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="30 to 35 percent faster" />
-  <img src="https://img.shields.io/badge/settings_automated-50_per_instrument-4F46E5?style=for-the-badge&labelColor=0B1020" alt="50 settings automated per instrument" />
+  <img src="https://img.shields.io/badge/settings_automated-50-4F46E5?style=for-the-badge&labelColor=0B1020" alt="50 settings automated" />
   <img src="https://img.shields.io/badge/legacy_apps-consolidated_into_1-7C3AED?style=for-the-badge&labelColor=0B1020" alt="Several legacy apps consolidated into one product" />
 </p>
 
@@ -127,8 +127,8 @@ I'm the **primary developer** on it, working with a **25–30 person team** acro
 - Structured it as a **Melos monorepo** with two product variants on a shared core package and a dedicated **log-parsing SDK**.
 - Built the **device communication modules** — **BLE** for gas-detection instruments, and **Wi-Fi, LAN and serial** for calibration stations — covering log download, parsing, visualization, firmware update workflows and multi-format export.
 - Suggested and built a **settings application for three instruments**, with an automated BLE update flow across **50 settings**. Working with the firmware team, this cut manual production effort by about **99%**.
-- **Performance:** redesigned the database schema and rewrote the heaviest queries, improving app performance by about **30–35%**, most of it on large log sets.
-- **Robustness:** built the **offline-first ObjectBox store** with bidirectional cloud sync and automatic reconciliation on reconnect, so the app stays usable with no network and resolves conflicts once it is back.
+- **Performance:** improved app performance by about **30–35%** by optimizing the database schema and queries.
+- **Robustness:** built the **offline-first ObjectBox store** with bidirectional cloud sync and automatic reconciliation on reconnect, for reliable operation in low-connectivity field environments.
 - Built the data-heavy screens on top of it: real-time charts, Gantt timeline views and multi-template report generation.
 - Reworked the app's **UI, navigation flow and data visualization**, creating the wireframes with the engineering manager.
 - Built **Windows-scheduled reporting** for LAN-connected devices, with customizable export configurations.
@@ -136,15 +136,19 @@ I'm the **primary developer** on it, working with a **25–30 person team** acro
 
 **Beyond the code**
 
-- **Mentoring.** Mentor juniors and colleagues on the codebase: code review, pairing on the BLE and log-parsing layers, and walkthroughs of how the monorepo and shared core fit together.
-- **Product management.** Work with the project manager and engineering manager in **Wrike**: breaking epics into sized tasks, distributing them across the team, and tracking estimates, dependencies and status through each release.
-- **DevOps.** CI/CD and release automation for Android, iOS and Windows on **Azure DevOps**, with versioning and packaging scripted, plus **n8n** workflows for repetitive engineering tasks.
-- Work across **three sites and time zones** — Ahmedabad, Valparaiso and Bolzano — which is most of why the design decisions and release notes are written down rather than discussed in a call.
+I joined Halma as an intern in January 2024 and have been the primary developer on SyncIT since 2025.
 
-| Variant | Who it's for | What it does |
-| --- | --- | --- |
-| **SyncIT Lite** | Field evaluation | Offline-first: connect to an instrument, download logs, parse, visualize and export |
-| **SyncIT Plus** | Fleet and compliance teams | Everything in Lite, plus cloud sync, advanced reporting and premium integrations |
+- **Spotted a production bottleneck and removed it.** I proposed the settings application and built it with the firmware team. Manual production effort dropped by about **99%**.
+- **Own releases on 3 platforms.** Builds, versioning, packaging and distribution for Android, iOS and Windows, with **Azure DevOps** in the toolchain.
+- **Primary developer for a 25–30 person team.** That means working with **6 disciplines in 3 countries**: software, firmware, hardware, QA, project management and marketing.
+- **Keep delivery organised in Wrike.** I create tasks, size them, distribute them across the team and track them through to release.
+- **Mentor juniors and colleagues** on the codebase and help them get unblocked.
+- **Brought agentic tooling into daily engineering.** I built a custom LLM agent harness and **n8n** automation for the team, and integrated **BMAD** and **GSD** into its workflow.
+
+| Variant | What it is |
+| --- | --- |
+| **SyncIT Lite** | Offline-first, for field evaluation |
+| **SyncIT Plus** | Cloud sync, advanced reporting and premium integrations |
 
 **Stack:** Flutter · Dart · Melos · ObjectBox · BLE · Wi-Fi, LAN and serial · Azure DevOps CI/CD · Wrike · n8n · Claude Code
 
@@ -317,11 +321,11 @@ flowchart LR
 
 ---
 
-## 📱 Earlier client work
+## 📱 Other instrument clients at Halma
 
-Earlier instrument-facing clients, before SyncIT:
+Two more clients for the same instruments:
 
-- **.NET MAUI settings application** — configures ~50 instrument parameters through a guided UI, packaged as byte arrays written over BLE.
+- **.NET MAUI settings application** — the app behind the 99% figure above. It configures ~50 instrument parameters through a guided UI, packaged as byte arrays and written to the instrument's Customer Profile region over BLE.
 - **React Native app** — BLE data download, SQLite persistence and cloud sync across Android and iOS from one shared codebase, **40% less** development effort.
 
 ---
@@ -376,7 +380,7 @@ Agent harness · RAG · Vector search · Prompt engineering · Tool calling · B
   <img src="https://skillicons.dev/icons?i=docker,kubernetes,azure,aws,jenkins,git,github,netlify,postman&perline=9" alt="Cloud and DevOps" />
 </p>
 
-Azure DevOps · CI/CD · Multi-platform release pipelines (Android, iOS, Windows) · Wrike · Sprint planning and task distribution
+Azure DevOps · CI/CD · Multi-platform release pipelines (Android, iOS, Windows) · Wrike · Task planning and distribution
 
 ---
 
