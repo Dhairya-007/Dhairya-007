@@ -102,7 +102,7 @@ A platform that ingests high-volume sensor data and puts it in front of customer
   <img src="https://img.shields.io/badge/manual_effort_removed-99%25-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="99 percent of manual effort removed" />
   <img src="https://img.shields.io/badge/app_performance-30--35%25_faster-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="30 to 35 percent faster" />
   <img src="https://img.shields.io/badge/settings_automated-50-4F46E5?style=for-the-badge&labelColor=0B1020" alt="50 settings automated" />
-  <img src="https://img.shields.io/badge/legacy_apps-consolidated_into_1-7C3AED?style=for-the-badge&labelColor=0B1020" alt="Several legacy apps consolidated into one product" />
+  <img src="https://img.shields.io/badge/older_apps_retired-5-7C3AED?style=for-the-badge&labelColor=0B1020" alt="5 older apps retired" />
 </p>
 
 <table>
@@ -112,18 +112,19 @@ A platform that ingests high-volume sensor data and puts it in front of customer
     <td align="center"><b>50</b><br/><sub>instrument settings<br/>pushed automatically</sub></td>
     <td align="center"><b>4</b><br/><sub>transports: BLE, Wi-Fi<br/>LAN, serial</sub></td>
     <td align="center"><b>3</b><br/><sub>platforms from<br/>one codebase</sub></td>
-    <td align="center"><b>2</b><br/><sub>product variants,<br/>one shared core</sub></td>
+    <td align="center"><b>5</b><br/><sub>older apps merged into<br/>SyncIT Lite and Plus</sub></td>
     <td align="center"><b>25–30</b><br/><sub>person team across<br/>3 countries</sub></td>
   </tr>
 </table>
 
-[Sensit](https://sensit-tech.com/gas-leak-detection-software/) has made gas-detection instruments for utilities, firefighters and hazmat teams for over 40 years. **SyncIT** is its next-generation instrument management platform, consolidating several older Sensit applications into one cross-platform product.
+[Sensit](https://sensit-tech.com/gas-leak-detection-software/) has made gas-detection instruments for utilities, firefighters and hazmat teams for over 40 years. **SyncIT** is its next-generation instrument management platform. It retired **5 older Sensit apps**, with all their functions consolidated into SyncIT Lite and SyncIT Plus.
 
 I'm the **primary developer** on it, working with a **25–30 person team** across software, firmware, hardware, QA, project management and marketing, split between **Ahmedabad**, **Valparaiso (Indiana)** and **Bolzano (Italy)**.
 
 **What I did**
 
 - Took SyncIT from a **proof of concept to a production-ready MVP**, and have kept evolving it since through new features, architectural improvements and client-driven changes.
+- **Retired 5 older apps** and moved all their functions into SyncIT Lite and Plus.
 - Structured it as a **Melos monorepo** with two product variants on a shared core package and a dedicated **log-parsing SDK**.
 - Built the **device communication modules** — **BLE** for gas-detection instruments, and **Wi-Fi, LAN and serial** for calibration stations — covering log download, parsing, visualization, firmware update workflows and multi-format export.
 - Suggested and built a **settings application for three instruments**, with an automated BLE update flow across **50 settings**. Working with the firmware team, this cut manual production effort by about **99%**.
