@@ -446,6 +446,49 @@ flowchart LR
 
 ---
 
+## 🌍 Open source contributions
+
+I contribute to the Python typing ecosystem, mostly hunting the class of bug that CI **structurally cannot catch** — a default value hidden behind `**kwargs` that `stubtest` has no parameter to compare against, or a return type that nothing validates.
+
+### [python/typeshed](https://github.com/python/typeshed) · the stub library behind mypy, pyright and every Python IDE
+
+<p align="left">
+  <img src="https://img.shields.io/badge/merged-3-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="3 merged" />
+  <img src="https://img.shields.io/badge/in_review-3-4F46E5?style=for-the-badge&labelColor=0B1020" alt="3 in review" />
+  <img src="https://img.shields.io/badge/packages_touched-11-7C3AED?style=for-the-badge&labelColor=0B1020" alt="11 packages" />
+</p>
+
+| PR | What it fixed |
+| --- | --- |
+| ✅ [#16714](https://github.com/python/typeshed/pull/16714) | **seaborn** declared `orientation: str = "protrait"` on `Plot.save`. The runtime signature is `(self, loc, **kwargs)`, so `stubtest` had no parameter to compare the default against and the typo survived. |
+| ✅ [#16719](https://github.com/python/typeshed/pull/16719) | **aiofiles** typed `fileno`/`rollover` as plain methods returning a generator, so `await f.fileno()` — the only correct way to call them — was a type error. |
+| ✅ [#16715](https://github.com/python/typeshed/pull/16715) | Misspellings across six packages' stub comments, leaving the lookalike *parameter* names alone, since `stubtest` compares those against the implementation. |
+| 🔍 [#16721](https://github.com/python/typeshed/pull/16721) | **behave** had no `model` stubs, so `context.table` — the object every Gherkin-table step touches — was untyped. Added `Table` and `Row`, cutting 14 `Any`s to zero. |
+| 🔍 [#16717](https://github.com/python/typeshed/pull/16717) | **geojson**'s `coords` was annotated as a *one-element* tuple, so reading a 2D point's latitude failed with "Tuple index out of range". |
+| 🔍 [#16718](https://github.com/python/typeshed/pull/16718) | **www-authenticate**'s `parse` returned `Any`; the value type is pinned by the implementation to `str \| dict[str, str] \| None`. |
+
+Every change is verified the same way before it goes out: `stubtest` against the real installed package, then `mypy --strict` and `pyright` on a usage file full of `assert_type`, so the error count before and after is the evidence.
+
+---
+
+## 📊 GitHub activity
+
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Dhairya-007&theme=tokyonight" alt="Contribution activity" />
+</p>
+
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Dhairya-007&theme=tokyonight" alt="Repositories per language" />
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Dhairya-007&theme=tokyonight" alt="Most committed language" />
+</p>
+
+<p align="center">
+  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Dhairya-007&theme=tokyonight&utcOffset=5.5" alt="Productive time" />
+  <img src="https://streak-stats.demolab.com?user=Dhairya-007&theme=tokyonight&hide_border=true&background=0B1020&ring=7C3AED&fire=C98A12&currStreakLabel=4F46E5" alt="Contribution streak" />
+</p>
+
+---
+
 ## 🏆 Achievements
 
 | | |
