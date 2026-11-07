@@ -16,6 +16,7 @@
     - Pin these six: agent-harness, rag-service, citrine-growth, detonator,
       portfolio, DSA (profile -> Customize your pins).
     - An n8n workflow pack would round out the AI section.
+    - Add a short "currently learning" line once the agent harness is public.
 -->
 
 <p align="center">
