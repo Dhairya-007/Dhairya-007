@@ -449,15 +449,15 @@ flowchart LR
 
 ## 🌍 Open source contributions
 
-I contribute to the Python typing ecosystem, mostly hunting the class of bug that CI **structurally cannot catch** — a default value hidden behind `**kwargs` that `stubtest` has no parameter to compare against, or a return type that nothing validates.
-
-### [python/typeshed](https://github.com/python/typeshed) · the stub library behind mypy, pyright and every Python IDE
+I hunt one class of bug on purpose: the kind a project's CI **structurally cannot catch**. A default hidden behind `**kwargs` that `stubtest` has no parameter to compare against. A log line whose placeholders outnumber its arguments. A format string that throws the moment debug logging is switched on. Linters do not look there, so the defects sit in released code for years.
 
 <p align="left">
-  <img src="https://img.shields.io/badge/merged-3-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="3 merged" />
-  <img src="https://img.shields.io/badge/in_review-3-4F46E5?style=for-the-badge&labelColor=0B1020" alt="3 in review" />
-  <img src="https://img.shields.io/badge/packages_touched-11-7C3AED?style=for-the-badge&labelColor=0B1020" alt="11 packages" />
+  <img src="https://img.shields.io/badge/merged-4-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="4 merged" />
+  <img src="https://img.shields.io/badge/in_review-20-4F46E5?style=for-the-badge&labelColor=0B1020" alt="20 in review" />
+  <img src="https://img.shields.io/badge/projects-15-7C3AED?style=for-the-badge&labelColor=0B1020" alt="15 projects" />
 </p>
+
+### 🐍 Python typing · [typeshed](https://github.com/python/typeshed), the stub library behind mypy, pyright and every Python IDE
 
 | PR | What it fixed |
 | --- | --- |
@@ -467,12 +467,47 @@ I contribute to the Python typing ecosystem, mostly hunting the class of bug tha
 | 🔍 [#16721](https://github.com/python/typeshed/pull/16721) | **behave** had no `model` stubs, so `context.table` — the object every Gherkin-table step touches — was untyped. Added `Table` and `Row`, cutting 14 `Any`s to zero. |
 | 🔍 [#16717](https://github.com/python/typeshed/pull/16717) | **geojson**'s `coords` was annotated as a *one-element* tuple, so reading a 2D point's latitude failed with "Tuple index out of range". |
 | 🔍 [#16718](https://github.com/python/typeshed/pull/16718) | **www-authenticate**'s `parse` returned `Any`; the value type is pinned by the implementation to `str \| dict[str, str] \| None`. |
+| 🔍 [#16722](https://github.com/python/typeshed/pull/16722) | **jsonschema** keyword validators annotated as returning iterators of validation errors. |
+| 🔍 [#16723](https://github.com/python/typeshed/pull/16723) | **ldap3** generator functions annotated as returning iterators rather than bare values. |
+
+Elsewhere in Python: ✅ [peps#5222](https://github.com/python/peps/pull/5222) · 🔍 [cpython#161509](https://github.com/python/cpython/pull/161509) corrects the documented default for `Timer.autorange` · 🔍 [more-itertools#1349](https://github.com/more-itertools/more-itertools/pull/1349).
 
 Every change is verified the same way before it goes out: `stubtest` against the real installed package, then `mypy --strict` and `pyright` on a usage file full of `assert_type`, so the error count before and after is the evidence.
+
+### ☕ Java · log and contract defects that no linter checks
+
+| PR | What it fixed |
+| --- | --- |
+| 🔍 [quarkus#58229](https://github.com/quarkusio/quarkus/pull/58229) | `log.debug("% clearCache not supported", id)` — `MessageWriter` routes through `String.format`, so that `%` threw `FormatFlagsConversionMismatchException` the moment debug logging was enabled. Confirmed by running it, not by reading it. |
+| 🔍 [netty#18309](https://github.com/netty/netty/pull/18309) | Five `ObjectUtil` checks named a parameter absent from the signature, so the thrown `NullPointerException` pointed callers at `executionContext` when the argument was `executor`. |
+| 🔍 [elasticsearch#165058](https://github.com/elastic/elasticsearch/pull/165058) | Two log calls with three placeholders and two arguments, printing a literal `{}`. Their own `logger-usage` checker exists but does not run over the `yaml-rest-runner` and `azure-fixture` source sets. |
+| 🔍 [camel#29382](https://github.com/apache/camel/pull/29382) | A debug line missing its index argument, so the hit data was swallowed by the first placeholder. |
+| 🔍 [micronaut-core#14324](https://github.com/micronaut-projects/micronaut-core/pull/14324) | Javadoc documenting a `@param` that is a local variable, not a parameter — on a private method, where `-Xdoclint` never looks. |
+
+### 🟨 JavaScript and TypeScript
+
+| PR | What it fixed |
+| --- | --- |
+| 🔍 [defu#202](https://github.com/unjs/defu/pull/202) | Symbol keys on the base object were dropped during merge. |
+| 🔍 [better-ajv-errors#325](https://github.com/atlassian/better-ajv-errors/pull/325) | Throws a clear error when data cannot be serialized, instead of failing opaquely. |
+| 🔍 [better-ajv-errors#326](https://github.com/atlassian/better-ajv-errors/pull/326) | Includes the expected value in `const` errors. |
+| 🔍 [eslint-plugin-vitest#990](https://github.com/vitest-dev/eslint-plugin-vitest/pull/990) | Adds an `additionalTestBlockFunctions` option to `padding-around-test-blocks`. |
+| 🔍 [eslint-plugin-vitest#989](https://github.com/vitest-dev/eslint-plugin-vitest/pull/989) | Documents the rationale and every option for `no-disabled-tests`. |
+| 🔍 [docusaurus-openapi-docs#1706](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs/pull/1706) | Adds a `showUntagged` option to hide the UNTAGGED category. |
+| 🔍 [ofetch#647](https://github.com/unjs/ofetch/pull/647) | Documents the `fetch` option for custom implementations. |
+| 🔍 [valibot#1734](https://github.com/open-circle/valibot/pull/1734) | Adds the missing `"type": "http"` to the `.mcp.json` example. |
 
 ---
 
 ## 📊 GitHub activity
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=Dhairya-007&theme=tokyonight&no-frame=true&no-bg=true&column=6&margin-w=8&margin-h=8" alt="GitHub trophies" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Dhairya-007&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&bg_color=0B1020&icon_color=7C3AED&title_color=4F46E5" alt="GitHub stats" />
+</p>
 
 <p align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Dhairya-007&theme=tokyonight" alt="Contribution activity" />
