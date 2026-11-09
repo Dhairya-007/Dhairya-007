@@ -25,7 +25,7 @@
 
 <p align="center">
   <a href="https://github.com/Dhairya-007">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=7C3AED&center=true&vCenter=true&width=700&lines=Full-stack+engineer+at+Halma+plc;Angular+%C2%B7+Next.js+%C2%B7+NestJS+%C2%B7+PostgreSQL+%C2%B7+Kafka;Primary+dev+on+SyncIT+%E2%80%94+Flutter+for+gas-detection+hardware;I+build+LLM+agents+and+automation+into+the+stack;RAG%2C+agent+harnesses+and+n8n+orchestration;From+the+database+to+the+dashboard" alt="Typing intro" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=7C3AED&center=true&vCenter=true&width=700&lines=Full-stack+engineer+at+Halma+plc;Angular+%C2%B7+Next.js+%C2%B7+NestJS+%C2%B7+PostgreSQL+%C2%B7+Kafka;Primary+dev+on+SyncIT+%E2%80%94+Flutter+for+gas-detection+hardware;I+build+LLM+agents+and+automation+into+the+stack;RAG%2C+agent+harnesses+and+n8n+orchestration;From+the+database+to+the+dashboard;16+merged+PRs+in+Apache+Camel%2C+typeshed%2C+Netty+and+the+PEPs" alt="Typing intro" />
   </a>
 </p>
 
@@ -443,59 +443,58 @@ flowchart LR
 - 🔍 **Going deeper on RAG and retrieval.** Chunking strategies, hybrid search and rank fusion, and how much context is actually worth paying for — most of it ends up in [rag-service](https://github.com/Dhairya-007/rag-service).
 - 📡 **Growing SyncIT past its MVP.** Two product variants on one Melos monorepo, a shared core package, a log-parsing SDK, and the device communication layer underneath both.
 - ⚙️ **Scaling the backend.** Event-driven architecture, concurrency and fault tolerance, for when sensor data arrives faster than one service can handle.
+- 🌍 **Contributing upstream, one CI blind spot at a time.** 16 changes merged into Apache Camel, typeshed, the PEPs,
+  Netty, Micronaut, drift and shelf — each one a defect the project's own linters and test suites could not reach.
 - 🧩 **Keeping fundamentals sharp** in [my DSA repo](https://github.com/Dhairya-007/DSA).
 
 ---
 
 ## 🌍 Open source contributions
 
-I hunt one class of bug on purpose: the kind a project's CI **structurally cannot catch**. A default hidden behind `**kwargs` that `stubtest` has no parameter to compare against. A log line whose placeholders outnumber its arguments. A format string that throws the moment debug logging is switched on. Linters do not look there, so the defects sit in released code for years.
+I hunt one class of bug on purpose: the kind a project's CI **structurally cannot catch**. A default hidden behind `**kwargs` that `stubtest` has no parameter to compare against. A log line whose placeholders outnumber its arguments. A hand-written catalog entry that drifts from the enum it describes. A format string that throws the moment debug logging is switched on. Linters do not look there, so the defects sit in released code for years.
 
 <p align="left">
-  <img src="https://img.shields.io/badge/merged-4-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="4 merged" />
-  <img src="https://img.shields.io/badge/in_review-20-4F46E5?style=for-the-badge&labelColor=0B1020" alt="20 in review" />
-  <img src="https://img.shields.io/badge/projects-15-7C3AED?style=for-the-badge&labelColor=0B1020" alt="15 projects" />
+  <img src="https://img.shields.io/badge/merged_upstream-16-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="16 merged upstream" />
+  <img src="https://img.shields.io/badge/projects-18-4F46E5?style=for-the-badge&labelColor=0B1020" alt="18 projects" />
+  <img src="https://img.shields.io/badge/shipped_to-Apache_·_Python_·_Netty_·_Google-7C3AED?style=for-the-badge&labelColor=0B1020" alt="Shipped to Apache, Python, Netty and Google projects" />
 </p>
 
-### 🐍 Python typing · [typeshed](https://github.com/python/typeshed), the stub library behind mypy, pyright and every Python IDE
+> Merged into **Apache Camel**, **CPython's PEPs**, **typeshed**, **Netty**, **Micronaut**, **drift** and **Google's shelf** — 16 changes, every one a defect their own tooling could not see.
 
-| PR | What it fixed |
+### ☕ Java · [Apache Camel](https://github.com/apache/camel), [Netty](https://github.com/netty/netty), [Micronaut](https://github.com/micronaut-projects/micronaut-core)
+
+| Merged | What it fixed |
 | --- | --- |
-| ✅ [#16714](https://github.com/python/typeshed/pull/16714) | **seaborn** declared `orientation: str = "protrait"` on `Plot.save`. The runtime signature is `(self, loc, **kwargs)`, so `stubtest` had no parameter to compare the default against and the typo survived. |
-| ✅ [#16719](https://github.com/python/typeshed/pull/16719) | **aiofiles** typed `fileno`/`rollover` as plain methods returning a generator, so `await f.fileno()` — the only correct way to call them — was a type error. |
-| ✅ [#16715](https://github.com/python/typeshed/pull/16715) | Misspellings across six packages' stub comments, leaving the lookalike *parameter* names alone, since `stubtest` compares those against the implementation. |
-| 🔍 [#16721](https://github.com/python/typeshed/pull/16721) | **behave** had no `model` stubs, so `context.table` — the object every Gherkin-table step touches — was untyped. Added `Table` and `Row`, cutting 14 `Any`s to zero. |
-| 🔍 [#16717](https://github.com/python/typeshed/pull/16717) | **geojson**'s `coords` was annotated as a *one-element* tuple, so reading a 2D point's latitude failed with "Tuple index out of range". |
-| 🔍 [#16718](https://github.com/python/typeshed/pull/16718) | **www-authenticate**'s `parse` returned `Any`; the value type is pinned by the implementation to `str \| dict[str, str] \| None`. |
-| 🔍 [#16722](https://github.com/python/typeshed/pull/16722) | **jsonschema** keyword validators annotated as returning iterators of validation errors. |
-| 🔍 [#16723](https://github.com/python/typeshed/pull/16723) | **ldap3** generator functions annotated as returning iterators rather than bare values. |
+| ✅ [camel#29425](https://github.com/apache/camel/pull/29425) | `jwtAlgorithm` advertised four JWT algorithms, two of which no `JwtAlgorithm` constant exists for. The catalog's enum list is hand-written while the enum is real code, so the two drifted apart. |
+| ✅ [camel#29424](https://github.com/apache/camel/pull/29424) | Three endpoint option defaults that disagreed with the value the component actually runs with. |
+| ✅ [camel#29419](https://github.com/apache/camel/pull/29419) | `@Metadata(defaultValue = "true")` on boolean fields that nothing ever assigns, so the documented default was never applied. |
+| ✅ [camel#29418](https://github.com/apache/camel/pull/29418) | Options typed `enum` whose `defaultValue` is not one of the values they declare. The value list is generated from the constants; the default is written by hand. |
+| ✅ [camel#29417](https://github.com/apache/camel/pull/29417) | A guard naming the wrong option, so a null `serviceAccountResource` reached `ResourceHelper.resolveResource` and threw an NPE instead of a clear configuration error. |
+| ✅ [camel#29383](https://github.com/apache/camel/pull/29383) | `EipAttribute` defined `equals` with no `hashCode`, and one compared field is a collection of lambdas — identity-hashed, so an instance was never found again in a `HashMap`. |
+| ✅ [camel#29382](https://github.com/apache/camel/pull/29382) | A debug line missing its index argument, so the hit data was swallowed by the first placeholder. |
+| ✅ [netty#18309](https://github.com/netty/netty/pull/18309) | Five `ObjectUtil` null-checks named a parameter absent from the signature, so the `NullPointerException` pointed callers at `executionContext` when the bad argument was `executor`. |
+| ✅ [micronaut-core#14324](https://github.com/micronaut-projects/micronaut-core/pull/14324) | Javadoc documenting a `@param` that is a local variable, not a parameter — on a private method, where `-Xdoclint` never looks. |
 
-Elsewhere in Python: ✅ [peps#5222](https://github.com/python/peps/pull/5222) · 🔍 [cpython#161509](https://github.com/python/cpython/pull/161509) corrects the documented default for `Timer.autorange` · 🔍 [more-itertools#1349](https://github.com/more-itertools/more-itertools/pull/1349).
+### 🐍 Python · [typeshed](https://github.com/python/typeshed), the stub library behind mypy, pyright and every Python IDE — and [the PEPs](https://github.com/python/peps)
 
-Every change is verified the same way before it goes out: `stubtest` against the real installed package, then `mypy --strict` and `pyright` on a usage file full of `assert_type`, so the error count before and after is the evidence.
-
-### ☕ Java · log and contract defects that no linter checks
-
-| PR | What it fixed |
+| Merged | What it fixed |
 | --- | --- |
-| 🔍 [quarkus#58229](https://github.com/quarkusio/quarkus/pull/58229) | `log.debug("% clearCache not supported", id)` — `MessageWriter` routes through `String.format`, so that `%` threw `FormatFlagsConversionMismatchException` the moment debug logging was enabled. Confirmed by running it, not by reading it. |
-| 🔍 [netty#18309](https://github.com/netty/netty/pull/18309) | Five `ObjectUtil` checks named a parameter absent from the signature, so the thrown `NullPointerException` pointed callers at `executionContext` when the argument was `executor`. |
-| 🔍 [elasticsearch#165058](https://github.com/elastic/elasticsearch/pull/165058) | Two log calls with three placeholders and two arguments, printing a literal `{}`. Their own `logger-usage` checker exists but does not run over the `yaml-rest-runner` and `azure-fixture` source sets. |
-| 🔍 [camel#29382](https://github.com/apache/camel/pull/29382) | A debug line missing its index argument, so the hit data was swallowed by the first placeholder. |
-| 🔍 [micronaut-core#14324](https://github.com/micronaut-projects/micronaut-core/pull/14324) | Javadoc documenting a `@param` that is a local variable, not a parameter — on a private method, where `-Xdoclint` never looks. |
+| ✅ [typeshed#16714](https://github.com/python/typeshed/pull/16714) | **seaborn** declared `orientation: str = "protrait"` on `Plot.save`. The runtime signature is `(self, loc, **kwargs)`, so `stubtest` had no parameter to compare the default against and the typo survived. |
+| ✅ [typeshed#16719](https://github.com/python/typeshed/pull/16719) | **aiofiles** typed `fileno`/`rollover` as plain methods returning a generator, so `await f.fileno()` — the only correct way to call them — was a type error. |
+| ✅ [typeshed#16715](https://github.com/python/typeshed/pull/16715) | Misspellings across six packages' stub comments, leaving the lookalike *parameter* names alone, since `stubtest` compares those against the implementation. |
+| ✅ [peps#5222](https://github.com/python/peps/pull/5222) | Typos across the PEP corpus. |
+| ✅ [peps#5223](https://github.com/python/peps/pull/5223) | Duplicated words in Draft and Active PEPs. |
 
-### 🟨 JavaScript and TypeScript
+Every typing change is verified the same way before it goes out: `stubtest` against the real installed package, then `mypy --strict` and `pyright` on a usage file full of `assert_type`, so the error count before and after is the evidence.
 
-| PR | What it fixed |
+### 🎯 Dart · [drift](https://github.com/simolus3/drift) and Google's [shelf](https://github.com/dart-lang/shelf)
+
+| Merged | What it fixed |
 | --- | --- |
-| 🔍 [defu#202](https://github.com/unjs/defu/pull/202) | Symbol keys on the base object were dropped during merge. |
-| 🔍 [better-ajv-errors#325](https://github.com/atlassian/better-ajv-errors/pull/325) | Throws a clear error when data cannot be serialized, instead of failing opaquely. |
-| 🔍 [better-ajv-errors#326](https://github.com/atlassian/better-ajv-errors/pull/326) | Includes the expected value in `const` errors. |
-| 🔍 [eslint-plugin-vitest#990](https://github.com/vitest-dev/eslint-plugin-vitest/pull/990) | Adds an `additionalTestBlockFunctions` option to `padding-around-test-blocks`. |
-| 🔍 [eslint-plugin-vitest#989](https://github.com/vitest-dev/eslint-plugin-vitest/pull/989) | Documents the rationale and every option for `no-disabled-tests`. |
-| 🔍 [docusaurus-openapi-docs#1706](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs/pull/1706) | Adds a `showUntagged` option to hide the UNTAGGED category. |
-| 🔍 [ofetch#647](https://github.com/unjs/ofetch/pull/647) | Documents the `fetch` option for custom implementations. |
-| 🔍 [valibot#1734](https://github.com/open-circle/valibot/pull/1734) | Adds the missing `"type": "http"` to the `.mcp.json` example. |
+| ✅ [drift#3892](https://github.com/simolus3/drift/pull/3892) | `KnownTable._parse` raised `ArgumentError.value` without passing the parameter name, so the error never said which argument was rejected. |
+| ✅ [shelf#556](https://github.com/dart-lang/shelf/pull/556) | A typo in the `shelf_router` documentation. |
+
+<sub>Also in review across Elasticsearch, Quarkus, CPython, Home Assistant, more-itertools and the Dart SDK repos. I only count what maintainers merged.</sub>
 
 ---
 
