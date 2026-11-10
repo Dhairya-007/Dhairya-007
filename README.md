@@ -25,7 +25,7 @@
 
 <p align="center">
   <a href="https://github.com/Dhairya-007">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=7C3AED&center=true&vCenter=true&width=700&lines=Full-stack+engineer+at+Halma+plc;Angular+%C2%B7+Next.js+%C2%B7+NestJS+%C2%B7+PostgreSQL+%C2%B7+Kafka;Primary+dev+on+SyncIT+%E2%80%94+Flutter+for+gas-detection+hardware;I+build+LLM+agents+and+automation+into+the+stack;RAG%2C+agent+harnesses+and+n8n+orchestration;From+the+database+to+the+dashboard;16+merged+PRs+in+Apache+Camel%2C+typeshed%2C+Netty+and+the+PEPs" alt="Typing intro" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=7C3AED&center=true&vCenter=true&width=700&lines=Full-stack+engineer+at+Halma+plc;Angular+%C2%B7+Next.js+%C2%B7+NestJS+%C2%B7+PostgreSQL+%C2%B7+Kafka;Primary+dev+on+SyncIT+%E2%80%94+Flutter+for+gas-detection+hardware;I+build+LLM+agents+and+automation+into+the+stack;RAG%2C+agent+harnesses+and+n8n+orchestration;From+the+database+to+the+dashboard;23+merged+PRs+in+Apache+Camel%2C+typeshed%2C+Netty+and+the+PEPs" alt="Typing intro" />
   </a>
 </p>
 
@@ -443,8 +443,9 @@ flowchart LR
 - 🔍 **Going deeper on RAG and retrieval.** Chunking strategies, hybrid search and rank fusion, and how much context is actually worth paying for — most of it ends up in [rag-service](https://github.com/Dhairya-007/rag-service).
 - 📡 **Growing SyncIT past its MVP.** Two product variants on one Melos monorepo, a shared core package, a log-parsing SDK, and the device communication layer underneath both.
 - ⚙️ **Scaling the backend.** Event-driven architecture, concurrency and fault tolerance, for when sensor data arrives faster than one service can handle.
-- 🌍 **Contributing upstream, one CI blind spot at a time.** 16 changes merged into Apache Camel, typeshed, the PEPs,
-  Netty, Micronaut, drift and shelf — each one a defect the project's own linters and test suites could not reach.
+- 🌍 **Contributing upstream, one CI blind spot at a time.** 23 changes merged into Apache Camel, typeshed, the PEPs,
+  Netty, Micronaut, more-itertools, drift and shelf — each one a defect the project's own linters and test suites could
+  not reach — and a dozen more in review.
 - 🧩 **Keeping fundamentals sharp** in [my DSA repo](https://github.com/Dhairya-007/DSA).
 
 ---
@@ -454,17 +455,22 @@ flowchart LR
 I hunt one class of bug on purpose: the kind a project's CI **structurally cannot catch**. A default hidden behind `**kwargs` that `stubtest` has no parameter to compare against. A log line whose placeholders outnumber its arguments. A hand-written catalog entry that drifts from the enum it describes. A format string that throws the moment debug logging is switched on. Linters do not look there, so the defects sit in released code for years.
 
 <p align="left">
-  <img src="https://img.shields.io/badge/merged_upstream-16-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="16 merged upstream" />
+  <img src="https://img.shields.io/badge/merged_upstream-23-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="23 merged upstream" />
   <img src="https://img.shields.io/badge/projects-18-4F46E5?style=for-the-badge&labelColor=0B1020" alt="18 projects" />
   <img src="https://img.shields.io/badge/shipped_to-Apache_·_Python_·_Netty_·_Google-7C3AED?style=for-the-badge&labelColor=0B1020" alt="Shipped to Apache, Python, Netty and Google projects" />
 </p>
 
-> Merged into **Apache Camel**, **CPython's PEPs**, **typeshed**, **Netty**, **Micronaut**, **drift** and **Google's shelf** — 16 changes, every one a defect their own tooling could not see.
+> Merged into **Apache Camel**, **CPython's PEPs**, **typeshed**, **Netty**, **Micronaut**, **more-itertools**, **drift** and **Google's shelf** — 23 changes, every one a defect their own tooling could not see. Status below is live as of 10 Nov 2026.
 
 ### ☕ Java · [Apache Camel](https://github.com/apache/camel), [Netty](https://github.com/netty/netty), [Micronaut](https://github.com/micronaut-projects/micronaut-core)
 
 | Merged | What it fixed |
 | --- | --- |
+| ✅ [camel#29491](https://github.com/apache/camel/pull/29491) | `transferException`'s description carried a note that belongs to `transferExchange`, in both camel-sjms and sjms2. |
+| ✅ [camel#29488](https://github.com/apache/camel/pull/29488) | Doc examples setting headers no component declares (`CamelZooKeeperCreateMode` for `CamelZookeeperCreateMode`, and three more). A wrong header name is silently ignored at runtime, so the example did nothing. |
+| ✅ [camel#29487](https://github.com/apache/camel/pull/29487) | camel-minio's docs named aws2-s3's option spellings (`autocloseBody`, `destinationBucket`) rather than minio's own (`autoCloseBody`, `destinationBucketName`). |
+| ✅ [camel#29472](https://github.com/apache/camel/pull/29472) | camel-printer's `mediaSize` lookup had no final `else`, so a value whose case or family prefix differed left the field null and `HashPrintRequestAttributeSet.add` threw an NPE. The module's tests are `@Disabled` because they need a printer, so nothing in CI ran the path. |
+| ✅ [camel#29471](https://github.com/apache/camel/pull/29471) | Component docs whose example URIs used query options the endpoint does not declare, found by checking every documented URI against the component's catalog JSON. |
 | ✅ [camel#29425](https://github.com/apache/camel/pull/29425) | `jwtAlgorithm` advertised four JWT algorithms, two of which no `JwtAlgorithm` constant exists for. The catalog's enum list is hand-written while the enum is real code, so the two drifted apart. |
 | ✅ [camel#29424](https://github.com/apache/camel/pull/29424) | Three endpoint option defaults that disagreed with the value the component actually runs with. |
 | ✅ [camel#29419](https://github.com/apache/camel/pull/29419) | `@Metadata(defaultValue = "true")` on boolean fields that nothing ever assigns, so the documented default was never applied. |
@@ -475,7 +481,7 @@ I hunt one class of bug on purpose: the kind a project's CI **structurally canno
 | ✅ [netty#18309](https://github.com/netty/netty/pull/18309) | Five `ObjectUtil` null-checks named a parameter absent from the signature, so the `NullPointerException` pointed callers at `executionContext` when the bad argument was `executor`. |
 | ✅ [micronaut-core#14324](https://github.com/micronaut-projects/micronaut-core/pull/14324) | Javadoc documenting a `@param` that is a local variable, not a parameter — on a private method, where `-Xdoclint` never looks. |
 
-### 🐍 Python · [typeshed](https://github.com/python/typeshed), the stub library behind mypy, pyright and every Python IDE — and [the PEPs](https://github.com/python/peps)
+### 🐍 Python · [typeshed](https://github.com/python/typeshed), the stub library behind mypy, pyright and every Python IDE — [the PEPs](https://github.com/python/peps) and [more-itertools](https://github.com/more-itertools/more-itertools)
 
 | Merged | What it fixed |
 | --- | --- |
@@ -484,6 +490,7 @@ I hunt one class of bug on purpose: the kind a project's CI **structurally canno
 | ✅ [typeshed#16715](https://github.com/python/typeshed/pull/16715) | Misspellings across six packages' stub comments, leaving the lookalike *parameter* names alone, since `stubtest` compares those against the implementation. |
 | ✅ [peps#5222](https://github.com/python/peps/pull/5222) | Typos across the PEP corpus. |
 | ✅ [peps#5223](https://github.com/python/peps/pull/5223) | Duplicated words in Draft and Active PEPs. |
+| ✅ [more-itertools#1349](https://github.com/more-itertools/more-itertools/pull/1349) | `strictly_n` and `circular_shifts` are generator functions annotated as returning a plain `Iterable`, so callers could not use `next()` on the result without a cast. |
 
 Every typing change is verified the same way before it goes out: `stubtest` against the real installed package, then `mypy --strict` and `pyright` on a usage file full of `assert_type`, so the error count before and after is the evidence.
 
@@ -492,9 +499,72 @@ Every typing change is verified the same way before it goes out: `stubtest` agai
 | Merged | What it fixed |
 | --- | --- |
 | ✅ [drift#3892](https://github.com/simolus3/drift/pull/3892) | `KnownTable._parse` raised `ArgumentError.value` without passing the parameter name, so the error never said which argument was rejected. |
+| ✅ [drift#3894](https://github.com/simolus3/drift/pull/3894) | Doc comments in the native extension that were swapped between two members or copy-pasted from a neighbour, so they described the wrong thing. |
 | ✅ [shelf#556](https://github.com/dart-lang/shelf/pull/556) | A typo in the `shelf_router` documentation. |
 
-<sub>Also in review across Elasticsearch, Quarkus, CPython, Home Assistant, more-itertools and the Dart SDK repos. I only count what maintainers merged.</sub>
+### ⏳ In review
+
+Open at the time of writing. I only count a change once maintainers merge it; these are listed so the status is visible, not to pad the number.
+
+<details>
+<summary><b>Apache Camel</b> · 7 open</summary>
+
+| PR | What it fixes |
+| --- | --- |
+| ⏳ [camel#29543](https://github.com/apache/camel/pull/29543) | camel-docling sets four async-status headers from string literals, so they were missing from `DoclingHeaders`, the catalog and the headers table. Declares them and asserts them in the async tests. |
+| ⏳ [camel#29542](https://github.com/apache/camel/pull/29542) | camel-ibm-watsonx-ai read `CamelAzureStorageBlobName` to name a streamed blob, but camel-azure-storage-blob sets `CamelAzureStorageBlobBlobName`, so the Azure fallback never matched. With a unit test for the resolution order. |
+| ⏳ [camel#29541](https://github.com/apache/camel/pull/29541) | Three headers (aws2-ddb, mongodb, smpp) documented with the text of the header declared next to them, one of them the opposite of what the code sets. |
+| ⏳ [camel#29539](https://github.com/apache/camel/pull/29539) | camel-crypto's `certificateName` was described as a `PrivateKey` reference; the setter looks up a `Certificate`. |
+| ⏳ [camel#29538](https://github.com/apache/camel/pull/29538) | camel-mail's `ignoreUriScheme` carried `ignoreUnsupportedCharset`'s description across six schemes, the catalog and both DSLs. |
+| ⏳ [camel#29492](https://github.com/apache/camel/pull/29492) | camel-seda's `defaultOfferTimeout` (a `long`) was described as a boolean toggle. Reworded after `SedaProducer.offerToQueue` following review. |
+| ⏳ [camel#29485](https://github.com/apache/camel/pull/29485) | camel-file's `eagerDeleteTargetFile` description named a non-existent `copyAndDeleteOnRenameFails` option and spelt `fileExist` as `fileExists`; approved, waiting on merge. |
+
+</details>
+
+<details>
+<summary><b>Python</b> · 9 open across typeshed, CPython, the PEPs and more-itertools</summary>
+
+| PR | What it fixes |
+| --- | --- |
+| ⏳ [typeshed#16717](https://github.com/python/typeshed/pull/16717) | **geojson**: `coords` return type and the `map_*` callables annotated. |
+| ⏳ [typeshed#16718](https://github.com/python/typeshed/pull/16718) | **www-authenticate**: `parse`'s return value typed. |
+| ⏳ [typeshed#16721](https://github.com/python/typeshed/pull/16721) | **behave**: stubs for `model.Table` and `model.Row`, which the package marks as partial. |
+| ⏳ [typeshed#16722](https://github.com/python/typeshed/pull/16722) | **jsonschema**: keyword validators annotated as returning iterators. |
+| ⏳ [typeshed#16723](https://github.com/python/typeshed/pull/16723) | **ldap3**: generator functions annotated as returning iterators. |
+| ⏳ [cpython#161509](https://github.com/python/cpython/pull/161509) | `Timer.autorange` documents a `target_time` default that differs from the code. |
+| ⏳ [peps#5224](https://github.com/python/peps/pull/5224) | Article and punctuation slips in Draft PEPs. |
+| ⏳ [more-itertools#1350](https://github.com/more-itertools/more-itertools/pull/1350) | Untested branches in `chunked_even` covered, and a dead check removed. |
+| ⏳ [home-assistant/core#191582](https://github.com/home-assistant/core/pull/191582) | The Solar-Log integration's diagnostics dump included the password unredacted. |
+
+</details>
+
+<details>
+<summary><b>Java</b> · 4 open across Elasticsearch, Quarkus and Micronaut</summary>
+
+| PR | What it fixes |
+| --- | --- |
+| ⏳ [elasticsearch#165058](https://github.com/elastic/elasticsearch/pull/165058) | Two log statements with more placeholders than arguments, in source sets the project's own `logger-usage` check does not cover. |
+| ⏳ [quarkus#58229](https://github.com/quarkusio/quarkus/pull/58229) | A `String.format` specifier that throws `FormatFlagsConversionMismatchException` the moment the line runs. |
+| ⏳ [micronaut-core#14345](https://github.com/micronaut-projects/micronaut-core/pull/14345) | Six `ArgumentUtils` checks that report the wrong argument name in the exception. |
+| ⏳ [micronaut-core#14346](https://github.com/micronaut-projects/micronaut-core/pull/14346) | Javadoc `@param` tags naming arguments the method does not have, plus doc blocks detached from their method and silently dropped. |
+
+</details>
+
+<details>
+<summary><b>Dart and TypeScript</b> · 10 open across drift, the Dart SDK repos, better-ajv-errors, eslint-plugin-vitest and docusaurus-openapi-docs</summary>
+
+| PR | What it fixes |
+| --- | --- |
+| ⏳ [drift#3893](https://github.com/simolus3/drift/pull/3893) | Three SQLite function return types in `sqlparser` that disagree with `sqlite3` itself (`round()` returns REAL, `julianday()` is not a text date function, `sqlite_compileoption_set` does not exist). |
+| ⏳ [shelf#558](https://github.com/dart-lang/shelf/pull/558) | A 500 response dropped a `Content-Type`'s charset when the header name was capitalised, because the lookup into the raw header map was case-sensitive. |
+| ⏳ [dart-lang/native#3787](https://github.com/dart-lang/native/pull/3787) | `ArgumentError.value` called with the message in the parameter-name slot, copied into ten generated files. |
+| ⏳ [dart-lang/i18n#1129](https://github.com/dart-lang/i18n/pull/1129) | The same `ArgumentError.value` mistake in `intl` and `intl_translation`. |
+| ⏳ [dart-lang/tools#2809](https://github.com/dart-lang/tools/pull/2809) | Typos in doc comments. |
+| ⏳ [better-ajv-errors#325](https://github.com/atlassian/better-ajv-errors/pull/325) · [#326](https://github.com/atlassian/better-ajv-errors/pull/326) | A clear error when data cannot be serialised to JSON, and the expected value included in `const` errors. |
+| ⏳ [eslint-plugin-vitest#989](https://github.com/vitest-dev/eslint-plugin-vitest/pull/989) · [#990](https://github.com/vitest-dev/eslint-plugin-vitest/pull/990) | `no-disabled-tests` docs covering every reported form, and an `additionalTestBlockFunctions` option for `padding-around-test-blocks`. |
+| ⏳ [docusaurus-openapi-docs#1706](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs/pull/1706) | A `showUntagged` option to hide the UNTAGGED category. |
+
+</details>
 
 ---
 
