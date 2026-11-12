@@ -25,7 +25,7 @@
 
 <p align="center">
   <a href="https://github.com/Dhairya-007">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=7C3AED&center=true&vCenter=true&width=700&lines=Full-stack+engineer+at+Halma+plc;Angular+%C2%B7+Next.js+%C2%B7+NestJS+%C2%B7+PostgreSQL+%C2%B7+Kafka;Primary+dev+on+SyncIT+%E2%80%94+Flutter+for+gas-detection+hardware;I+build+LLM+agents+and+automation+into+the+stack;RAG%2C+agent+harnesses+and+n8n+orchestration;From+the+database+to+the+dashboard;32+merged+PRs+in+Apache+Camel%2C+typeshed%2C+Netty+and+the+PEPs" alt="Typing intro" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=7C3AED&center=true&vCenter=true&width=700&lines=Full-stack+engineer+at+Halma+plc;Angular+%C2%B7+Next.js+%C2%B7+NestJS+%C2%B7+PostgreSQL+%C2%B7+Kafka;Primary+dev+on+SyncIT+%E2%80%94+Flutter+for+gas-detection+hardware;I+build+LLM+agents+and+automation+into+the+stack;RAG%2C+agent+harnesses+and+n8n+orchestration;From+the+database+to+the+dashboard;50+merged+PRs+in+Apache+Camel%2C+Elasticsearch%2C+typeshed+and+Home+Assistant" alt="Typing intro" />
   </a>
 </p>
 
@@ -443,9 +443,9 @@ flowchart LR
 - 🔍 **Going deeper on RAG and retrieval.** Chunking strategies, hybrid search and rank fusion, and how much context is actually worth paying for — most of it ends up in [rag-service](https://github.com/Dhairya-007/rag-service).
 - 📡 **Growing SyncIT past its MVP.** Two product variants on one Melos monorepo, a shared core package, a log-parsing SDK, and the device communication layer underneath both.
 - ⚙️ **Scaling the backend.** Event-driven architecture, concurrency and fault tolerance, for when sensor data arrives faster than one service can handle.
-- 🌍 **Contributing upstream, one CI blind spot at a time.** 32 changes merged into Apache Camel, typeshed, the PEPs,
-  Netty, Micronaut, more-itertools, drift and shelf — each one a defect the project's own linters and test suites could
-  not reach — and two dozen more in review.
+- 🌍 **Contributing upstream, one CI blind spot at a time.** 50 changes merged into Apache Camel, Elasticsearch,
+  Quarkus, Home Assistant, typeshed, the PEPs, Netty, Micronaut, more-itertools, drift and the Dart SDK repos — each one
+  a defect the project's own linters and test suites could not reach — and 40 more in review.
 - 🧩 **Keeping fundamentals sharp** in [my DSA repo](https://github.com/Dhairya-007/DSA).
 
 ---
@@ -455,17 +455,28 @@ flowchart LR
 I hunt one class of bug on purpose: the kind a project's CI **structurally cannot catch**. A default hidden behind `**kwargs` that `stubtest` has no parameter to compare against. A log line whose placeholders outnumber its arguments. A hand-written catalog entry that drifts from the enum it describes. A format string that throws the moment debug logging is switched on. Linters do not look there, so the defects sit in released code for years.
 
 <p align="left">
-  <img src="https://img.shields.io/badge/merged_upstream-32-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="32 merged upstream" />
+  <img src="https://img.shields.io/badge/merged_upstream-50-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="50 merged upstream" />
   <img src="https://img.shields.io/badge/projects-18-4F46E5?style=for-the-badge&labelColor=0B1020" alt="18 projects" />
   <img src="https://img.shields.io/badge/shipped_to-Apache_·_Python_·_Netty_·_Google-7C3AED?style=for-the-badge&labelColor=0B1020" alt="Shipped to Apache, Python, Netty and Google projects" />
 </p>
 
-> Merged into **Apache Camel**, **CPython's PEPs**, **typeshed**, **Netty**, **Micronaut**, **more-itertools**, **drift** and **Google's shelf** — 32 changes, every one a defect their own tooling could not see. Status below is live as of 10 Nov 2026.
+> Merged into **Apache Camel**, **Elasticsearch**, **Quarkus**, **Home Assistant**, **CPython's PEPs**, **typeshed**, **Netty**, **Micronaut**, **more-itertools**, **drift** and Google's **shelf** and **native** — 50 changes, every one a defect their own tooling could not see. Status below is live as of 12 Nov 2026.
 
-### ☕ Java · [Apache Camel](https://github.com/apache/camel), [Netty](https://github.com/netty/netty), [Micronaut](https://github.com/micronaut-projects/micronaut-core)
+### ☕ Java · [Apache Camel](https://github.com/apache/camel), [Elasticsearch](https://github.com/elastic/elasticsearch), [Quarkus](https://github.com/quarkusio/quarkus), [Netty](https://github.com/netty/netty), [Micronaut](https://github.com/micronaut-projects/micronaut-core)
 
 | Merged | What it fixed |
 | --- | --- |
+| ✅ [elasticsearch#165058](https://github.com/elastic/elasticsearch/pull/165058) | Two log statements with more `{}` placeholders than arguments, so the message printed a literal `{}` where the value should have been — in `TransportService` and the ILM `SetSingleNodeAllocateStep`. Nothing fails a build over a log line, so they are invisible until someone reads the output. |
+| ✅ [quarkus#58229](https://github.com/quarkusio/quarkus/pull/58229) | `TestRegistryClient.clearCache` built its message with `%d` for a `Path`, so the only thing that could come out of that line was `IllegalFormatConversionException` — thrown from the error handler, replacing the real failure. |
+| ✅ [camel#29649](https://github.com/apache/camel/pull/29649) | Seven argument checks that name something other than the value they check, so `IllegalArgumentException` sent the caller to the wrong option. One pair in camel-as2 gave away the copy: the same two wrong literals on the same line numbers of a sibling class. |
+| ✅ [camel#29650](https://github.com/apache/camel/pull/29650), [#29641](https://github.com/apache/camel/pull/29641) | Javadoc blocks separated from the member they document: a field inserted between a block and its target orphans the earlier block, and Javadoc keeps only the last. 22 of them across core and camel-jbang, including one whose description and `@param` tags had drifted into separate blocks, so only the tags survived. |
+| ✅ [camel#29647](https://github.com/apache/camel/pull/29647) | `@param` tags naming arguments the method does not have, plus duplicated words in Javadoc — on members where `-Xdoclint` does not run. |
+| ✅ [camel#29646](https://github.com/apache/camel/pull/29646) | Three option descriptions that describe something other than the option, found by reading the catalog JSON rather than the source. |
+| ✅ [camel#29570](https://github.com/apache/camel/pull/29570) | Four documented header names no component declares: infinispan's `CamelInfinispanLifespanTimeUnit` (the real one is `CamelInfinispanTimeUnit`), keycloak's `CamelKeycloakUserPasswordTemporary`, and two javadoc references in langchain4j-embeddingstore. A wrong header name is silently ignored at runtime. |
+| ✅ [camel#29569](https://github.com/apache/camel/pull/29569) | `NowSearchTerm` redeclared the inherited `ComparisonTerm.comparison`, so `super.equals` compared a field that is always `0`: `equals` ignored both `comparison` and `offset` while `hashCode` used `comparison`, giving equal terms different hash codes. |
+| ✅ [camel#29568](https://github.com/apache/camel/pull/29568) | Three fluent setters on `CyberArkVaultConfigurationProperties` called themselves instead of their setter, so configuring an API key, the SSL flag or a certificate path threw `StackOverflowError`. |
+| ✅ [camel#29550](https://github.com/apache/camel/pull/29550), [#29645](https://github.com/apache/camel/pull/29645) | 22 misspellings in option and header descriptions across 17 components, each fixed at the annotation or setter javadoc the generator reads and propagated by hand to every generated copy — the component JSON, both catalog copies and the DSL builders. |
+| ✅ [camel#29642](https://github.com/apache/camel/pull/29642), [#29644](https://github.com/apache/camel/pull/29644), [#29648](https://github.com/apache/camel/pull/29648), [#29651](https://github.com/apache/camel/pull/29651) | Camel's CI has no spell checker at all. Four sweeps over component docs, test comments, the user manual and the READMEs — with the intentional misspellings left alone, since a line like ``camel ps --sort=nmae`` is demonstrating an unknown key. |
 | ✅ [camel#29543](https://github.com/apache/camel/pull/29543) | camel-docling sets four async-status headers from string literals, so they were missing from `DoclingHeaders`, the catalog and the headers table. Declares them and asserts them in the async tests. |
 | ✅ [camel#29542](https://github.com/apache/camel/pull/29542) | camel-ibm-watsonx-ai read `CamelAzureStorageBlobName` to name a streamed blob, but camel-azure-storage-blob sets `CamelAzureStorageBlobBlobName`, so the Azure fallback never matched. With a unit test for the resolution order. |
 | ✅ [camel#29541](https://github.com/apache/camel/pull/29541) | Three headers (aws2-ddb, mongodb, smpp) documented with the text of the header declared next to them, one of them the opposite of what the code sets. |
@@ -488,10 +499,11 @@ I hunt one class of bug on purpose: the kind a project's CI **structurally canno
 | ✅ [netty#18309](https://github.com/netty/netty/pull/18309) | Five `ObjectUtil` null-checks named a parameter absent from the signature, so the `NullPointerException` pointed callers at `executionContext` when the bad argument was `executor`. |
 | ✅ [micronaut-core#14324](https://github.com/micronaut-projects/micronaut-core/pull/14324) | Javadoc documenting a `@param` that is a local variable, not a parameter — on a private method, where `-Xdoclint` never looks. |
 
-### 🐍 Python · [typeshed](https://github.com/python/typeshed), the stub library behind mypy, pyright and every Python IDE — [the PEPs](https://github.com/python/peps) and [more-itertools](https://github.com/more-itertools/more-itertools)
+### 🐍 Python · [typeshed](https://github.com/python/typeshed), the stub library behind mypy, pyright and every Python IDE — [Home Assistant](https://github.com/home-assistant/core), [the PEPs](https://github.com/python/peps) and [more-itertools](https://github.com/more-itertools/more-itertools)
 
 | Merged | What it fixed |
 | --- | --- |
+| ✅ [home-assistant#191582](https://github.com/home-assistant/core/pull/191582) | The Solar-Log integration wrote the configured password into its diagnostics download in clear. Every other field was redacted; the one that matters was not. |
 | ✅ [typeshed#16721](https://github.com/python/typeshed/pull/16721) | **behave**: stubs for `model.Table` and `model.Row`, which the package marks as a partial stub. |
 | ✅ [typeshed#16714](https://github.com/python/typeshed/pull/16714) | **seaborn** declared `orientation: str = "protrait"` on `Plot.save`. The runtime signature is `(self, loc, **kwargs)`, so `stubtest` had no parameter to compare the default against and the typo survived. |
 | ✅ [typeshed#16719](https://github.com/python/typeshed/pull/16719) | **aiofiles** typed `fileno`/`rollover` as plain methods returning a generator, so `await f.fileno()` — the only correct way to call them — was a type error. |
@@ -502,10 +514,11 @@ I hunt one class of bug on purpose: the kind a project's CI **structurally canno
 
 Every typing change is verified the same way before it goes out: `stubtest` against the real installed package, then `mypy --strict` and `pyright` on a usage file full of `assert_type`, so the error count before and after is the evidence.
 
-### 🎯 Dart · [drift](https://github.com/simolus3/drift) and Google's [shelf](https://github.com/dart-lang/shelf)
+### 🎯 Dart · [drift](https://github.com/simolus3/drift) and Google's [shelf](https://github.com/dart-lang/shelf) and [native](https://github.com/dart-lang/native)
 
 | Merged | What it fixed |
 | --- | --- |
+| ✅ [native#3787](https://github.com/dart-lang/native/pull/3787) | `json_syntax_generator` raised `ArgumentError.value` without the parameter name, so the generated validation error never said which field was rejected — the same defect as drift#3892, in a different Dart repo. |
 | ✅ [drift#3892](https://github.com/simolus3/drift/pull/3892) | `KnownTable._parse` raised `ArgumentError.value` without passing the parameter name, so the error never said which argument was rejected. |
 | ✅ [drift#3893](https://github.com/simolus3/drift/pull/3893) | Three SQLite function return types in `sqlparser` that disagree with `sqlite3` itself (`round()` returns REAL, `julianday()` is not a text date function, `sqlite_compileoption_set` does not exist). |
 | ✅ [drift#3894](https://github.com/simolus3/drift/pull/3894) | Doc comments in the native extension that were swapped between two members or copy-pasted from a neighbour, so they described the wrong thing. |
@@ -516,59 +529,74 @@ Every typing change is verified the same way before it goes out: `stubtest` agai
 Open at the time of writing. I only count a change once maintainers merge it; these are listed so the status is visible, not to pad the number.
 
 <details>
-<summary><b>Apache Camel</b> · 4 open</summary>
+<summary><b>Apache Camel</b> · 17 open</summary>
 
 | PR | What it fixes |
 | --- | --- |
-| ⏳ [camel#29570](https://github.com/apache/camel/pull/29570) | Four documented header names no component declares: infinispan's `CamelInfinispanLifespanTimeUnit` (the unit header is `CamelInfinispanTimeUnit`), keycloak's `CamelKeycloakUserPasswordTemporary`, and two javadoc references in langchain4j-embeddingstore. |
-| ⏳ [camel#29569](https://github.com/apache/camel/pull/29569) | `NowSearchTerm` redeclared the inherited `ComparisonTerm.comparison`, so `super.equals` compared a field that is always `0`: `equals` ignored both `comparison` and `offset` while `hashCode` used `comparison`, giving equal terms different hash codes. |
-| ⏳ [camel#29568](https://github.com/apache/camel/pull/29568) | Three fluent setters on `CyberArkVaultConfigurationProperties` called themselves instead of their setter, so configuring an API key, the SSL flag or a certificate path threw `StackOverflowError`. |
-| ⏳ [camel#29550](https://github.com/apache/camel/pull/29550) | 18 misspellings in option and header descriptions across 17 components, fixed at the annotation or setter javadoc the generator reads and propagated to every generated copy. |
+| ⏳ [camel#29674](https://github.com/apache/camel/pull/29674) | `MiloServerComponent` tested `securityPolicies.contains(Basic256Sha256)` in two consecutive `else if` branches, so the second was unreachable and the HTTPS endpoint it exists to create was never built. |
+| ⏳ [camel#29675](https://github.com/apache/camel/pull/29675) | `WordpressAPIConfiguration.equals` was `Objects.equals(this, obj)` — which calls `equals` again. Any two distinct instances recursed until `StackOverflowError`. |
+| ⏳ [camel#29676](https://github.com/apache/camel/pull/29676) | `NaturalSortComparator.isDigit` was `c >= 48 && c < 57`, excluding `'9'`. ZooKeeper's sequential znodes then sorted `node-0000000009` before `node-0000000008`. |
+| ⏳ [camel#29677](https://github.com/apache/camel/pull/29677) | The MLLP-style wait in camel-smpp discarded the result of `CountDownLatch.await(10, SECONDS)`, so on timeout the listener processed the message with a null processor and the SMSC got an NPE instead of a protocol error. |
+| ⏳ [camel#29678](https://github.com/apache/camel/pull/29678) | camel-mllp built every acknowledgement's MSH-7 through a shared `SimpleDateFormat` — a TODO on the line said so. One connection thread per client means interleaved `format()` calls and a corrupt timestamp. |
+| ⏳ [camel#29679](https://github.com/apache/camel/pull/29679) | `ReferenceId.equals` compares the normalised error list while `hashCode` hashed the raw field, so a reference id without `errors` and one with `[]` are equal but hash differently. |
+| ⏳ [camel#29680](https://github.com/apache/camel/pull/29680) | camel-file-watch dropped the result of `eventQueue.offer(...)`, so once a bounded `queueSize` filled, file events vanished with no exchange and no log line. |
+| ⏳ [camel#29681](https://github.com/apache/camel/pull/29681) | `VertxComponent` discarded the result of its bounded `latch.await` and only warned on a failed build, so the component reached *started* with a null Vert.x and failed much later with an NPE. |
+| ⏳ [camel#29694](https://github.com/apache/camel/pull/29694) | Five places Base64-encoded HTTP Basic credentials with the platform default charset. RFC 7617 says UTF-8, so a non-ASCII password produced a different header on different machines and a 401 nobody could explain. |
+| ⏳ [camel#29696](https://github.com/apache/camel/pull/29696) | camel-clickup computed the webhook HMAC over default-charset bytes, so signature validation failed for any payload with a non-ASCII character. It also logged the shared secret. |
+| ⏳ [camel#29702](https://github.com/apache/camel/pull/29702) | The file resume support positioned the body with a single unchecked `skip(offset)`. Both `InputStream.skip` and `Reader.skip` may advance less than asked, and the return value is the only thing that says where the stream is. |
+| ⏳ [camel#29705](https://github.com/apache/camel/pull/29705) | Four configurations printed credentials in clear from `toString()` — zendesk, kubernetes (including `clientKeyData`, a private key), smpp and huaweicloud-dms — all of them options their own catalog marks `secret: true`. |
+| ⏳ [camel#29706](https://github.com/apache/camel/pull/29706) | camel-aws2-transcribe's `protocol` option is read by nothing, and carried `proxyProtocol`'s description, so it read as if it configured the proxy. |
+| ⏳ [camel#29707](https://github.com/apache/camel/pull/29707) | `setSecureRandomName` guarded on the `keystore` *field* instead of the value it had just looked up — a copy of its four sibling setters — so the named `SecureRandom` was resolved and then dropped unless a keystore happened to be set. |
+| ⏳ [camel#29709](https://github.com/apache/camel/pull/29709) | camel-influxdb2's `retentionPolicy` option and `camelInfluxDB.RetentionPolicy` header are InfluxDB 1.x leftovers; the 2.x write API has no retention policy, and nothing reads either. |
+| ⏳ [camel#29711](https://github.com/apache/camel/pull/29711) | The receiving side of the same charset bug: `HttpServerChannelHandler` decoded Basic credentials with the platform default charset, so a correctly-encoded client was rejected. |
+| ⏳ [camel#29643](https://github.com/apache/camel/pull/29643) | 112 misspellings in Javadoc and code comments across the main sources, with the intentional examples left in place. |
 
 </details>
 
 <details>
-<summary><b>Python</b> · 8 open across typeshed, CPython, the PEPs and more-itertools</summary>
+<summary><b>Python</b> · 7 open across typeshed, CPython, the PEPs and more-itertools</summary>
 
 | PR | What it fixes |
 | --- | --- |
-| ⏳ [typeshed#16717](https://github.com/python/typeshed/pull/16717) | **geojson**: `coords` return type and the `map_*` callables annotated. |
-| ⏳ [typeshed#16718](https://github.com/python/typeshed/pull/16718) | **www-authenticate**: `parse`'s return value typed. |
-| ⏳ [typeshed#16722](https://github.com/python/typeshed/pull/16722) | **jsonschema**: keyword validators annotated as returning iterators. |
-| ⏳ [typeshed#16723](https://github.com/python/typeshed/pull/16723) | **ldap3**: generator functions annotated as returning iterators. |
-| ⏳ [cpython#161509](https://github.com/python/cpython/pull/161509) | `Timer.autorange` documents a `target_time` default that differs from the code. |
+| ⏳ [typeshed#16723](https://github.com/python/typeshed/pull/16723) | **ldap3**: generator functions annotated as returning a plain `Iterable`, so `next()` on the result was a type error. |
+| ⏳ [typeshed#16722](https://github.com/python/typeshed/pull/16722) | **jsonschema**: keyword validators annotated the same way, where the library's own contract is that they yield errors. |
+| ⏳ [typeshed#16718](https://github.com/python/typeshed/pull/16718) | **www-authenticate**: `parse`'s return value was untyped. |
+| ⏳ [typeshed#16717](https://github.com/python/typeshed/pull/16717) | **geojson**: a wrong `coords` return type and the `map_*` callables left unannotated. |
+| ⏳ [cpython#161509](https://github.com/python/cpython/pull/161509) | `timeit.Timer.autorange`'s documented default for `target_time` did not match the code. |
 | ⏳ [peps#5224](https://github.com/python/peps/pull/5224) | Article and punctuation slips in Draft PEPs. |
-| ⏳ [more-itertools#1350](https://github.com/more-itertools/more-itertools/pull/1350) | Untested branches in `chunked_even` covered, and a dead check removed. |
-| ⏳ [home-assistant/core#191582](https://github.com/home-assistant/core/pull/191582) | The Solar-Log integration's diagnostics dump included the password unredacted. |
+| ⏳ [more-itertools#1350](https://github.com/more-itertools/more-itertools/pull/1350) | Coverage for untested branches, and a dead check in `chunked_even`. |
 
 </details>
 
 <details>
-<summary><b>Java</b> · 4 open across Elasticsearch, Quarkus and Micronaut</summary>
+<summary><b>Java</b> · 6 open across Elasticsearch, Quarkus, Netty and Micronaut</summary>
 
 | PR | What it fixes |
 | --- | --- |
-| ⏳ [elasticsearch#165058](https://github.com/elastic/elasticsearch/pull/165058) | Two log statements with more placeholders than arguments, in source sets the project's own `logger-usage` check does not cover. |
-| ⏳ [quarkus#58229](https://github.com/quarkusio/quarkus/pull/58229) | A `String.format` specifier that throws `FormatFlagsConversionMismatchException` the moment the line runs. |
-| ⏳ [micronaut-core#14345](https://github.com/micronaut-projects/micronaut-core/pull/14345) | Six `ArgumentUtils` checks that report the wrong argument name in the exception. |
-| ⏳ [micronaut-core#14346](https://github.com/micronaut-projects/micronaut-core/pull/14346) | Javadoc `@param` tags naming arguments the method does not have, plus doc blocks detached from their method and silently dropped. |
+| ⏳ [elasticsearch#165596](https://github.com/elastic/elasticsearch/pull/165596) | 97 misspellings in `server/src/main` comments and Javadoc. |
+| ⏳ [quarkus#58347](https://github.com/quarkusio/quarkus/pull/58347) | 142 misspellings across 93 files, with Redis command names and `ObjectInputStream` abbreviations left alone. |
+| ⏳ [netty#18345](https://github.com/netty/netty/pull/18345) | 53 misspellings and six duplicated words, keeping io_uring's `BufferRing` and the multipart API's `datas`. |
+| ⏳ [micronaut-core#14430](https://github.com/micronaut-projects/micronaut-core/pull/14430) | 32 misspellings in comments and Javadoc. |
+| ⏳ [micronaut-core#14346](https://github.com/micronaut-projects/micronaut-core/pull/14346) | Javadoc `@param` tags naming arguments the method does not have. |
+| ⏳ [micronaut-core#14345](https://github.com/micronaut-projects/micronaut-core/pull/14345) | Six `ArgumentUtils` checks reporting the wrong argument name, so the exception pointed callers at the wrong parameter. |
 
 </details>
 
 <details>
-<summary><b>Dart and TypeScript</b> · 11 open across drift, the Dart SDK repos, better-ajv-errors, eslint-plugin-vitest and docusaurus-openapi-docs</summary>
+<summary><b>Dart and TypeScript</b> · 10 open across drift, the Dart SDK repos, better-ajv-errors, eslint-plugin-vitest and docusaurus-openapi-docs</summary>
 
 | PR | What it fixes |
 | --- | --- |
-| ⏳ [drift#3895](https://github.com/simolus3/drift/pull/3895) | `sqlparser` typed function results that can be `NULL` as non-nullable — the date and time functions, `julianday`, `octet_length`, `sqlite_compileoption_get` and the whole math extension, which returns `NULL` for domain errors like `sqrt(-1)` or `log(0)`. drift_dev turned those into non-nullable Dart fields. |
-| ⏳ [drift#3896](https://github.com/simolus3/drift/pull/3896) | `sign`, `substring` and `sqlite_source_id` reported as unknown functions although they are built in, with `sign` gated on the sqlite 3.35 that introduced it. |
-| ⏳ [shelf#558](https://github.com/dart-lang/shelf/pull/558) | A 500 response dropped a `Content-Type`'s charset when the header name was capitalised, because the lookup into the raw header map was case-sensitive. |
-| ⏳ [dart-lang/native#3787](https://github.com/dart-lang/native/pull/3787) | `ArgumentError.value` called with the message in the parameter-name slot, copied into ten generated files. |
-| ⏳ [dart-lang/i18n#1129](https://github.com/dart-lang/i18n/pull/1129) | The same `ArgumentError.value` mistake in `intl` and `intl_translation`. |
-| ⏳ [dart-lang/tools#2809](https://github.com/dart-lang/tools/pull/2809) | Typos in doc comments. |
-| ⏳ [better-ajv-errors#325](https://github.com/atlassian/better-ajv-errors/pull/325) · [#326](https://github.com/atlassian/better-ajv-errors/pull/326) | A clear error when data cannot be serialised to JSON, and the expected value included in `const` errors. |
-| ⏳ [eslint-plugin-vitest#989](https://github.com/vitest-dev/eslint-plugin-vitest/pull/989) · [#990](https://github.com/vitest-dev/eslint-plugin-vitest/pull/990) | `no-disabled-tests` docs covering every reported form, and an `additionalTestBlockFunctions` option for `padding-around-test-blocks`. |
-| ⏳ [docusaurus-openapi-docs#1706](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs/pull/1706) | A `showUntagged` option to hide the UNTAGGED category. |
+| ⏳ [drift#3896](https://github.com/simolus3/drift/pull/3896) | `sqlparser` did not know the `sign`, `substring` and `sqlite_source_id` built-ins that SQLite does have. |
+| ⏳ [drift#3895](https://github.com/simolus3/drift/pull/3895) | Function results that SQLite can return as NULL were typed as non-nullable. |
+| ⏳ [shelf#558](https://github.com/dart-lang/shelf/pull/558) | A 500 response looked for an existing `content-type` header case-sensitively, so it could add a second one. |
+| ⏳ [i18n#1129](https://github.com/dart-lang/i18n/pull/1129) | `intl` and `intl_translation` raised `ArgumentError.value` without the argument name. |
+| ⏳ [tools#2809](https://github.com/dart-lang/tools/pull/2809) | Typos in doc comments. |
+| ⏳ [better-ajv-errors#326](https://github.com/atlassian/better-ajv-errors/pull/326) | A `const` error said what was wrong but not what the expected value was. |
+| ⏳ [better-ajv-errors#325](https://github.com/atlassian/better-ajv-errors/pull/325) | Data that cannot be serialised to JSON threw an opaque error instead of a clear one. |
+| ⏳ [eslint-plugin-vitest#990](https://github.com/vitest-dev/eslint-plugin-vitest/pull/990) | `padding-around-test-blocks` could not be told about custom test-block functions. |
+| ⏳ [eslint-plugin-vitest#989](https://github.com/vitest-dev/eslint-plugin-vitest/pull/989) | `no-disabled-tests` documented neither its rationale nor every form it reports. |
+| ⏳ [docusaurus-openapi-docs#1706](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs/pull/1706) | No way to hide the `UNTAGGED` category, so a spec without tags got a section nobody wants. |
 
 </details>
 
