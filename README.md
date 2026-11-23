@@ -233,6 +233,15 @@ The work above lives in a private codebase, so here are the same ideas, in publi
 | **[agent-harness](https://github.com/Dhairya-007/agent-harness)** | A typed agent harness for Claude. The loop is the easy part — this is the rest: tool inputs validated before they run, approval gates over parsed arguments, a context budget that clears old tool output, a verification pass that can send the model back, and distinct errors for refusal, truncated tool input and context overflow. 39 tests, no network. | TypeScript · Zod · Anthropic SDK |
 | **[rag-service](https://github.com/Dhairya-007/rag-service)** | Grounded document Q&A. Hybrid BM25 + dense retrieval fused by rank, a NestJS API and a Next.js UI. Retrieval is a *tool the model calls repeatedly*, not a prompt prefix, and an answer that cites nothing is rejected and sent back. 52 tests. | NestJS · Next.js · TypeScript · agent-harness |
 
+### 🧱 Open source libraries
+
+Data grids, taken apart. The engine knows nothing about rendering; the Flutter grid is the same ideas with a widget layer on top. Both MIT, both without a licence key.
+
+| Repo | What it is | Built with |
+| --- | --- | --- |
+| **[datagrid-core](https://github.com/Dhairya-007/datagrid-core)** | A headless data grid engine for TypeScript: sorting, filtering, grouping with aggregates, tree rows, virtualization, selection, editing with undo and CSV export. No renderer, no framework, no dependencies. | TypeScript |
+| **[lattice](https://github.com/Dhairya-007/lattice)** | An open source data grid for Flutter: sorting, filtering, grouping, aggregation, frozen columns, virtualization and editing — the commercial grids' feature set, without the licence key. | Dart · Flutter |
+
 ### How I think about agent systems
 
 ```mermaid
@@ -445,7 +454,8 @@ flowchart LR
 - ⚙️ **Scaling the backend.** Event-driven architecture, concurrency and fault tolerance, for when sensor data arrives faster than one service can handle.
 - 🌍 **Contributing upstream, one CI blind spot at a time.** 141 changes merged into Apache Camel, Elasticsearch,
   Quarkus, Home Assistant, typeshed, the PEPs, Netty, Micronaut, more-itertools, drift and the Dart SDK repos — each one
-  a defect the project's own linters and test suites could not reach — and 18 more in review.
+  a defect the project's own linters and test suites could not reach — and 17 more in review.
+- 🧮 **Taking the data grid apart.** A headless engine in TypeScript ([datagrid-core](https://github.com/Dhairya-007/datagrid-core)) and a Flutter grid on the same ideas ([lattice](https://github.com/Dhairya-007/lattice)) — grouping, virtualization and editing as a library, not a licence key.
 - 🧩 **Keeping fundamentals sharp** in [my DSA repo](https://github.com/Dhairya-007/DSA).
 
 ---
@@ -456,11 +466,11 @@ I hunt one class of bug on purpose: the kind a project's CI **structurally canno
 
 <p align="left">
   <img src="https://img.shields.io/badge/merged_upstream-141-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="141 merged upstream" />
-  <img src="https://img.shields.io/badge/projects-18-4F46E5?style=for-the-badge&labelColor=0B1020" alt="18 projects" />
+  <img src="https://img.shields.io/badge/projects-17-4F46E5?style=for-the-badge&labelColor=0B1020" alt="17 projects" />
   <img src="https://img.shields.io/badge/shipped_to-Apache_·_Python_·_Netty_·_Google-7C3AED?style=for-the-badge&labelColor=0B1020" alt="Shipped to Apache, Python, Netty and Google projects" />
 </p>
 
-> Merged into **Apache Camel**, **Elasticsearch**, **Quarkus**, **Home Assistant**, **CPython's PEPs**, **typeshed**, **Netty**, **Micronaut**, **more-itertools**, **drift** and Google's **shelf** and **native** — 141 changes, every one a defect their own tooling could not see. Counts are as of 20 Nov 2026.
+> Merged into **Apache Camel**, **Elasticsearch**, **Quarkus**, **Home Assistant**, **CPython's PEPs**, **typeshed**, **Netty**, **Micronaut**, **more-itertools**, **drift** and Google's **shelf** and **native** — 141 changes, every one a defect their own tooling could not see. Counts are as of 23 Nov 2026.
 
 ### 📦 By project
 
@@ -483,8 +493,7 @@ I hunt one class of bug on purpose: the kind a project's CI **structurally canno
 | [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/pulls?q=is%3Apr+author%3ADhairya-007) | — | 2 |
 | [intl (dart-lang/i18n)](https://github.com/dart-lang/i18n/pulls?q=is%3Apr+author%3ADhairya-007) | — | 1 |
 | [dart-lang/tools](https://github.com/dart-lang/tools/pulls?q=is%3Apr+author%3ADhairya-007) | — | 1 |
-| [docusaurus-openapi-docs](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs/pulls?q=is%3Apr+author%3ADhairya-007) | — | 1 |
-| **Total** | **141** | **18** |
+| **Total** | **141** | **17** |
 
 I only count a change once maintainers merge it. Every PR is public: [all merged](https://github.com/search?q=author%3ADhairya-007+is%3Apr+is%3Amerged+-user%3ADhairya-007&type=pullrequests) · [all in review](https://github.com/search?q=author%3ADhairya-007+is%3Apr+is%3Aopen+-user%3ADhairya-007&type=pullrequests).
 
