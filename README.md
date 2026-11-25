@@ -2,8 +2,13 @@
   Dhairya Oza · GitHub profile README
   Lives at github.com/Dhairya-007/Dhairya-007 — this file renders on the profile page.
 
-  Positioning: full-stack engineer who builds AI into the stack.
-  Frontend and backend lead; SyncIT (the cross-platform Sensit product) sits right after it.
+  Positioning, in priority order:
+    1. Upstream contributor — 142 changes merged into Apache Camel, Elasticsearch,
+       Netty, Quarkus, Micronaut, Home Assistant, typeshed, the PEPs and Google's
+       Dart repos. This is the rarest thing here, so it leads.
+    2. Maintainer — lattice (Flutter data grid, on pub.dev) and datagrid-core.
+    3. Primary developer on SyncIT at Halma.
+    4. Everything else.
 
   Palette (keep these consistent if you edit):
     deep navy #0B1020
@@ -11,29 +16,113 @@
     violet    #7C3AED
     teal      #0E7C6B
 
-  THINGS TO FILL IN LATER
-    - Push Siddheshwari Investment to a public repo and link it in the table.
-    - Pin these six: agent-harness, rag-service, citrine-growth, detonator,
-      portfolio, DSA (profile -> Customize your pins).
-    - An n8n workflow pack would round out the AI section.
-    - Add a short "currently learning" line once the agent harness is public.
+  MAINTENANCE
+    - PR counts are live-verifiable:
+        merged:    gh api -X GET search/issues -f q='author:Dhairya-007 type:pr is:merged' --paginate
+        in review: gh api -X GET search/issues -f q='author:Dhairya-007 type:pr is:open'   --paginate
+      Exclude repos under Dhairya-007/ — only upstream counts. Update the "as of" date.
+    - Pin these six: lattice, agent-harness, rag-service, datagrid-core,
+      voiceagent, lights-out (profile -> Customize your pins).
+    - Add the lattice web demo link here once GitHub Pages is live.
 -->
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1020,50:4F46E5,100:7C3AED&height=200&section=header&text=Hi%2C%20I%27m%20Dhairya&fontColor=ffffff&fontSize=46&fontAlignY=36&desc=Full-Stack%20Engineer%20%C2%B7%20AI%20and%20Agentic%20Systems&descAlignY=56&descSize=18" alt="Hi, I'm Dhairya" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B1020,50:4F46E5,100:7C3AED&height=200&section=header&text=Hi%2C%20I%27m%20Dhairya&fontColor=ffffff&fontSize=46&fontAlignY=36&desc=Full-Stack%20Engineer%20%C2%B7%20Upstream%20Contributor%20%C2%B7%20AI%20Systems&descAlignY=56&descSize=18" alt="Hi, I'm Dhairya" />
 </p>
 
 <p align="center">
-  <a href="https://github.com/Dhairya-007">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3200&pause=900&color=7C3AED&center=true&vCenter=true&width=700&lines=Full-stack+engineer+at+Halma+plc;Angular+%C2%B7+Next.js+%C2%B7+NestJS+%C2%B7+PostgreSQL+%C2%B7+Kafka;Primary+dev+on+SyncIT+%E2%80%94+Flutter+for+gas-detection+hardware;I+build+LLM+agents+and+automation+into+the+stack;RAG%2C+agent+harnesses+and+n8n+orchestration;From+the+database+to+the+dashboard;141+merged+PRs+in+Apache+Camel%2C+Elasticsearch%2C+typeshed+and+Home+Assistant" alt="Typing intro" />
+  <a href="https://github.com/search?q=author%3ADhairya-007+is%3Apr+is%3Amerged+-user%3ADhairya-007&type=pullrequests">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&duration=3400&pause=900&color=7C3AED&center=true&vCenter=true&width=760&lines=142+changes+merged+into+Apache+Camel%2C+Elasticsearch%2C+Netty;I+hunt+the+bugs+a+project%27s+CI+structurally+cannot+catch;Maintainer+of+lattice+%E2%80%94+a+free+data+grid+for+Flutter;Full-stack+engineer+at+Halma+plc+%C2%B7+Angular+%C2%B7+NestJS+%C2%B7+Kafka;Primary+dev+on+SyncIT+%E2%80%94+Flutter+for+gas-detection+hardware;I+build+LLM+agents+and+automation+into+the+stack" alt="Typing intro" />
   </a>
 </p>
 
 <p align="center">
   <a href="https://www.linkedin.com/in/dhairya-oza-7723b2200/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="https://dhairyaoza007.netlify.app"><img src="https://img.shields.io/badge/Portfolio-0E7C6B?style=for-the-badge&logo=netlify&logoColor=white" alt="Portfolio" /></a>
+  <a href="https://pub.dev/packages/lattice_core"><img src="https://img.shields.io/badge/pub.dev-0175C2?style=for-the-badge&logo=dart&logoColor=white" alt="pub.dev" /></a>
   <a href="mailto:ozadhairya73@gmail.com"><img src="https://img.shields.io/badge/Email-7C3AED?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
 </p>
+
+<table align="center">
+  <tr>
+    <td align="center" width="25%"><b>142</b><br/><sub>changes merged<br/>into upstream projects</sub></td>
+    <td align="center" width="25%"><b>12</b><br/><sub>projects, incl. Apache<br/>Python, Netty, Google</sub></td>
+    <td align="center" width="25%"><b>2</b><br/><sub>open-source libraries<br/>published and maintained</sub></td>
+    <td align="center" width="25%"><b>3</b><br/><sub>platforms I ship<br/>a product on</sub></td>
+  </tr>
+</table>
+
+> **The short version.** I'm a full-stack engineer at Halma plc, and in my own time I hunt one class of bug on purpose: the kind a project's CI **structurally cannot catch**. A default hidden behind `**kwargs` that `stubtest` has no parameter to compare against. A log line whose placeholders outnumber its arguments. A hand-written catalog entry that drifts from the enum it describes. A format string that throws the moment debug logging is switched on. Linters do not look there, so the defects sit in released code for years. **142 of those are now fixed in Apache Camel, Elasticsearch, Netty, Quarkus, Home Assistant and friends.**
+
+---
+
+## 🌍 Upstream contributions
+
+<p align="left">
+  <img src="https://img.shields.io/badge/merged_upstream-142-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="142 merged upstream" />
+  <img src="https://img.shields.io/badge/in_review-16-4F46E5?style=for-the-badge&labelColor=0B1020" alt="16 in review" />
+  <img src="https://img.shields.io/badge/shipped_to-Apache_·_Python_·_Netty_·_Google_·_Elastic-7C3AED?style=for-the-badge&labelColor=0B1020" alt="Shipped to Apache, Python, Netty, Google and Elastic projects" />
+</p>
+
+Every typing change is verified the same way before it goes out: `stubtest` against the real installed package, then `mypy --strict` and `pyright` on a usage file full of `assert_type`, so the error count before and after is the evidence. I only count a change once maintainers merge it.
+
+### 📦 By project
+
+| Project | Merged | In review |
+| --- | ---: | ---: |
+| [Apache Camel](https://github.com/apache/camel/pulls?q=is%3Apr+author%3ADhairya-007) | 120 | — |
+| [drift](https://github.com/simolus3/drift/pulls?q=is%3Apr+author%3ADhairya-007) | 5 | — |
+| [typeshed](https://github.com/python/typeshed/pulls?q=is%3Apr+author%3ADhairya-007) | 4 | 4 |
+| [the PEPs](https://github.com/python/peps/pulls?q=is%3Apr+author%3ADhairya-007) | 3 | — |
+| [Netty](https://github.com/netty/netty/pulls?q=is%3Apr+author%3ADhairya-007) | 2 | — |
+| [Micronaut](https://github.com/micronaut-projects/micronaut-core/pulls?q=is%3Apr+author%3ADhairya-007) | 2 | 2 |
+| [Elasticsearch](https://github.com/elastic/elasticsearch/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | 1 |
+| [more-itertools](https://github.com/more-itertools/more-itertools/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | 1 |
+| [shelf](https://github.com/dart-lang/shelf/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | 1 |
+| [Quarkus](https://github.com/quarkusio/quarkus/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | — |
+| [Home Assistant](https://github.com/home-assistant/core/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | — |
+| [native](https://github.com/dart-lang/native/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | — |
+| [CPython](https://github.com/python/cpython/pulls?q=is%3Apr+author%3ADhairya-007) | — | 1 |
+| [better-ajv-errors](https://github.com/atlassian/better-ajv-errors/pulls?q=is%3Apr+author%3ADhairya-007) | — | 2 |
+| [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/pulls?q=is%3Apr+author%3ADhairya-007) | — | 2 |
+| [intl (dart-lang/i18n)](https://github.com/dart-lang/i18n/pulls?q=is%3Apr+author%3ADhairya-007) | — | 1 |
+| [dart-lang/tools](https://github.com/dart-lang/tools/pulls?q=is%3Apr+author%3ADhairya-007) | — | 1 |
+| **Total** | **142** | **16** |
+
+Every PR is public and verifiable: [all merged](https://github.com/search?q=author%3ADhairya-007+is%3Apr+is%3Amerged+-user%3ADhairya-007&type=pullrequests) · [all in review](https://github.com/search?q=author%3ADhairya-007+is%3Apr+is%3Aopen+-user%3ADhairya-007&type=pullrequests). Counts as of **25 Nov 2026**.
+
+---
+
+## 📦 Open source I maintain
+
+Libraries I build and keep, not demos. Both grid projects exist for the same reason: every capable data grid in their ecosystem is behind a licence key.
+
+### 🧮 [lattice](https://github.com/Dhairya-007/lattice) · a data grid for Flutter that doesn't ask for a licence key
+
+<p align="left">
+  <a href="https://pub.dev/packages/lattice_core"><img alt="lattice_core on pub.dev" src="https://img.shields.io/pub/v/lattice_core.svg?label=lattice_core&color=0175C2&style=for-the-badge" /></a>
+  <img alt="MIT" src="https://img.shields.io/badge/licence-MIT-0E7C6B?style=for-the-badge" />
+  <img alt="Dart" src="https://img.shields.io/badge/Dart_3.8+-0175C2?style=for-the-badge&logo=dart&logoColor=white" />
+  <img alt="Flutter" src="https://img.shields.io/badge/Flutter_3.47+-02569B?style=for-the-badge&logo=flutter&logoColor=white" />
+</p>
+
+Flutter's data grid story is Syncfusion and friends — powerful, and gated behind a paid licence. **lattice** does the hard parts and asks for nothing: frozen columns, multi-column sorting, a filter row, grouping with subtotals, tree rows, virtual scrolling, range selection, inline editing and CSV export. No licence key, no paid tier, no evaluation banner.
+
+**[pub.dev](https://pub.dev/packages/lattice_core)** · **[Code](https://github.com/Dhairya-007/lattice)** · MIT
+
+### ⚙️ [datagrid-core](https://github.com/Dhairya-007/datagrid-core) · the same engine, headless, for TypeScript
+
+Sorting, filtering, grouping with aggregates, tree rows, virtualization, selection, editing with undo and CSV export — as a pure state machine. No renderer, no framework, **no dependencies**. Bring your own React, Vue, Svelte or plain DOM.
+
+### 🤖 The AI work, in public
+
+The agent systems I build at work live in a private codebase, so here are the same ideas, runnable.
+
+| Repo | What it is | Built with |
+| --- | --- | --- |
+| **[agent-harness](https://github.com/Dhairya-007/agent-harness)** | A typed agent harness for Claude. The loop is the easy part — this is the rest: tool inputs validated before they run, approval gates over parsed arguments, a context budget that clears old tool output, a verification pass that can send the model back, and distinct errors for refusal, truncated tool input and context overflow. **39 tests, no network.** | TypeScript · Zod · Anthropic SDK |
+| **[rag-service](https://github.com/Dhairya-007/rag-service)** | Grounded document Q&A. Hybrid BM25 + dense retrieval fused by rank, a NestJS API and a Next.js UI. Retrieval is a *tool the model calls repeatedly*, not a prompt prefix, and an answer that cites nothing is rejected and sent back. **52 tests.** | NestJS · Next.js · TypeScript · agent-harness |
+| **[voiceagent](https://github.com/Dhairya-007/voiceagent)** | Streaming voice agent for phone calls: STT → LLM → TTS with barge-in, Twilio telephony and per-turn latency tracing. **696 ms p50.** Runs free and offline. | Python · Twilio · streaming STT/TTS |
 
 ---
 
@@ -41,15 +130,16 @@
 
 I'm a **full-stack engineer** at **Halma plc**, building the whole path: PostgreSQL schemas and NestJS services at the back, Kafka and Redis in the middle, Angular and Next.js dashboards at the front, and Docker/Kubernetes underneath it all.
 
-The half I'm most interested in right now is **AI in the engineering loop**. I've built a custom **LLM agent harness** and **n8n** automation that my team uses daily, and I work with RAG, vector search and agentic frameworks like BMAD and GSD. Not models — systems: the orchestration, the tool layer, the retrieval, and the glue that makes an agent useful instead of impressive.
+Outside of work, I do two things. I **contribute upstream** — 142 changes merged into Apache Camel, Elasticsearch, Netty, Quarkus, Home Assistant and the Python and Dart ecosystems, all of one kind: the defect a project's own tooling cannot see. And I **maintain libraries** that fill a gap I hit myself — [lattice](https://github.com/Dhairya-007/lattice), a data grid for Flutter that doesn't need a licence key, and [datagrid-core](https://github.com/Dhairya-007/datagrid-core), the same engine headless for TypeScript.
 
-The other half of my work is hardware-facing. I'm the primary developer on **SyncIT**, the application that manages Sensit's gas-detection instruments over BLE, Wi-Fi, LAN and serial, on Android, iOS and Windows from one Flutter codebase.
+The half of my day job I'm most interested in is **AI in the engineering loop**. I've built a custom **LLM agent harness** and **n8n** automation that my team uses daily, and I work with RAG, vector search and agentic frameworks like BMAD and GSD. Not models — systems: the orchestration, the tool layer, the retrieval, and the glue that makes an agent useful instead of impressive.
+
+The other half is hardware-facing. I'm the primary developer on **SyncIT**, the application that manages Sensit's gas-detection instruments over BLE, Wi-Fi, LAN and serial, on Android, iOS and Windows from one Flutter codebase.
 
 I also mentor juniors and colleagues on the codebase, and work with the project manager and engineering manager in **Wrike** on task breakdown, sizing and distribution.
 
-I studied Computer Science at **SVNIT Surat**, graduating in 2024 ranked 5th of 135 with a 9.19 CGPA.
-
 <p align="left">
+  <img src="https://img.shields.io/badge/Open_Source-0E7C6B?style=flat-square&logoColor=white" alt="Open Source" />
   <img src="https://img.shields.io/badge/Full--Stack-4F46E5?style=flat-square&logoColor=white" alt="Full-Stack" />
   <img src="https://img.shields.io/badge/AI_%26_Agents-7C3AED?style=flat-square&logoColor=white" alt="AI and Agents" />
   <img src="https://img.shields.io/badge/Distributed_Systems-0E7C6B?style=flat-square&logoColor=white" alt="Distributed Systems" />
@@ -59,31 +149,6 @@ I studied Computer Science at **SVNIT Surat**, graduating in 2024 ranked 5th of 
 </p>
 
 ---
-
-## 🏗️ Full-stack engineering
-
-### 🌐 Sensor data platform · `Angular` `NestJS` `PostgreSQL` `Kafka`
-
-`Halma plc` &nbsp; `2024 – present`
-
-A platform that ingests high-volume sensor data and puts it in front of customers as live dashboards. I work across the whole stack on it.
-
-**Backend**
-- Engineered the **REST API surface** and backend services on **NestJS**.
-- Built the ingestion path with **Apache Kafka** event streaming, **Redis** caching and **BullMQ** job queues, so high-volume sensor data lands reliably instead of dropping under burst load.
-- Designed for scale and fault tolerance — the data arrives faster than any single service wants to handle.
-
-**Frontend**
-- Built real-time **HighCharts** visualizations on Angular, including interactive **wind-rose plots** and correction dashboards, so customers can read live field data at a glance.
-
-**Infrastructure**
-- Containerized services with **Docker**, deployed on **Kubernetes**, and wired up **CI/CD pipelines** for scalable, fault-tolerant releases.
-
-**Performance**
-- Refactored data-intensive modules and optimized LiteDB queries in a legacy UWP desktop app — reports and grids load up to **75% faster**.
-
----
-
 ## 📱 SyncIT · instrument management platform
 
 ### 🛰️ Cross-platform product for gas-detection instruments · `Flutter` `Dart` `Melos` `ObjectBox`
@@ -202,6 +267,30 @@ flowchart LR
 
 ---
 
+## 🏗️ Full-stack engineering
+
+### 🌐 Sensor data platform · `Angular` `NestJS` `PostgreSQL` `Kafka`
+
+`Halma plc` &nbsp; `2024 – present`
+
+A platform that ingests high-volume sensor data and puts it in front of customers as live dashboards. I work across the whole stack on it.
+
+**Backend**
+- Engineered the **REST API surface** and backend services on **NestJS**.
+- Built the ingestion path with **Apache Kafka** event streaming, **Redis** caching and **BullMQ** job queues, so high-volume sensor data lands reliably instead of dropping under burst load.
+- Designed for scale and fault tolerance — the data arrives faster than any single service wants to handle.
+
+**Frontend**
+- Built real-time **HighCharts** visualizations on Angular, including interactive **wind-rose plots** and correction dashboards, so customers can read live field data at a glance.
+
+**Infrastructure**
+- Containerized services with **Docker**, deployed on **Kubernetes**, and wired up **CI/CD pipelines** for scalable, fault-tolerant releases.
+
+**Performance**
+- Refactored data-intensive modules and optimized LiteDB queries in a legacy UWP desktop app — reports and grids load up to **75% faster**.
+
+---
+
 ## 🤖 AI and agentic engineering
 
 ### 🧠 LLM agent harness and workflow automation
@@ -223,15 +312,6 @@ The part of my work I'd happily talk about all day. I build the systems around m
   <img src="https://img.shields.io/badge/RAG-0E7C6B?style=for-the-badge&logoColor=white" alt="RAG" />
   <img src="https://img.shields.io/badge/Agentic_Workflows-4F46E5?style=for-the-badge&logoColor=white" alt="Agentic Workflows" />
 </p>
-
-### 📦 Open source
-
-The work above lives in a private codebase, so here are the same ideas, in public and runnable.
-
-| Repo | What it is | Built with |
-| --- | --- | --- |
-| **[agent-harness](https://github.com/Dhairya-007/agent-harness)** | A typed agent harness for Claude. The loop is the easy part — this is the rest: tool inputs validated before they run, approval gates over parsed arguments, a context budget that clears old tool output, a verification pass that can send the model back, and distinct errors for refusal, truncated tool input and context overflow. 39 tests, no network. | TypeScript · Zod · Anthropic SDK |
-| **[rag-service](https://github.com/Dhairya-007/rag-service)** | Grounded document Q&A. Hybrid BM25 + dense retrieval fused by rank, a NestJS API and a Next.js UI. Retrieval is a *tool the model calls repeatedly*, not a prompt prefix, and an answer that cites nothing is rejected and sent back. 52 tests. | NestJS · Next.js · TypeScript · agent-harness |
 
 ### How I think about agent systems
 
@@ -269,20 +349,21 @@ flowchart LR
 
 ---
 
-## 🧩 Full-stack projects
+
+## 🧩 Things I've built for fun
 
 | Project | What it is | Stack | Links |
 | --- | --- | --- | --- |
-| **rag-service** | Grounded document Q&A — hybrid retrieval, a NestJS API and a Next.js UI, with answers that cite their sources. | NestJS · Next.js · TypeScript | [Code](https://github.com/Dhairya-007/rag-service) |
-| **agent-harness** | A typed agent harness for Claude: validated tool inputs, approval gates, context budgeting and a readable trace. | TypeScript · Zod · Anthropic SDK | [Code](https://github.com/Dhairya-007/agent-harness) |
-| **Citrine Growth** | A digital agency platform — marketing site plus a full admin panel, with dual light/dark theming throughout. | Next.js 14 · NestJS · Prisma · PostgreSQL | [Code](https://github.com/Dhairya-007/citrine-growth) |
-| **Detonate the Bomb** | A browser puzzle game: 50 hand-built levels, instruction-driven gameplay, timer system, scoring and level progression, all client-side. | Next.js · TypeScript · CSS3 | [Live](https://detonatebomb.netlify.app/) · [Code](https://github.com/Dhairya-007/detonator) |
+| **lights-out** | Formula 1 races replayed in the browser in 3D, with real engine sound, team radio, and the race story found automatically from timing data. | Three.js · Web Audio · OpenF1 | [Live](https://dhairya-007.github.io/lights-out/) · [Code](https://github.com/Dhairya-007/lights-out) |
+| **billber** | Split shared expenses in three taps. No account, no server, works offline. | TypeScript · PWA | [Code](https://github.com/Dhairya-007/billber) |
+| **ochre-pass-rally** | A 3D rally game in Python: career mode, AI rivals, online multiplayer, four generated stages, physically based rendering. | Python · Panda3D | [Code](https://github.com/Dhairya-007/ochre-pass-rally) |
+| **Detonate the Bomb** | A browser puzzle game: 50 hand-built levels, instruction-driven gameplay, timer, scoring and level progression, all client-side. | Next.js · TypeScript · CSS3 | [Live](https://detonatebomb.netlify.app/) · [Code](https://github.com/Dhairya-007/detonator) |
 | **Portfolio** | A single-page portfolio built as a Formula 1 racing dashboard — 10+ custom animations, dynamic gauges, interactive navigation, responsive to phone width. | Next.js · TypeScript · CSS animations | [Live](https://dhairyaoza007.netlify.app/) · [Code](https://github.com/Dhairya-007/portfolio) |
+| **Citrine Growth** | A digital agency platform — marketing site plus a full admin panel, with dual light/dark theming throughout. | Next.js 14 · NestJS · Prisma · PostgreSQL | [Code](https://github.com/Dhairya-007/citrine-growth) |
 | **Siddheshwari Investment** | A business site for an investment firm: 10+ content sections, tuned for load performance and cross-browser support. | Angular · TypeScript · Netlify | [Live](https://siddheshwariinvestment.netlify.app/) |
-| **DSA** | Where my data structures and algorithms practice lives. | Java | [Code](https://github.com/Dhairya-007/DSA) |
+| **Desi board games** | Ludo with cuts and safe stars, snakes and ladders with hand-drawn SVG snakes and a 3D dice, and an Ahmedabad property board game. | React · Vite · SVG | [ludo](https://github.com/Dhairya-007/ludo-katta) · [saap-sidi](https://github.com/Dhairya-007/saap-sidi) · [amdavad](https://github.com/Dhairya-007/amdavad-business) |
 
 ---
-
 ## 🔌 The shape of what I build
 
 End to end, most of my work is this path:
@@ -437,99 +518,36 @@ flowchart LR
 
 ---
 
+
 ## 🌱 Right now
 
+- 🧮 **Growing [lattice](https://github.com/Dhairya-007/lattice) past 1.0.** A web demo, more grid features, and the long tail of things people actually need from a data grid once they start using it in anger.
+- 🌍 **Contributing upstream, one CI blind spot at a time.** 142 changes merged into Apache Camel, Elasticsearch, Quarkus, Home Assistant, typeshed, the PEPs, Netty, Micronaut, more-itertools, drift and the Dart SDK repos — each one a defect the project's own linters and test suites could not reach — and 16 more in review.
 - 🤖 **Building agentic tooling into daily engineering.** n8n orchestration, a custom LLM agent harness, and frameworks like BMAD and GSD — the goal is an agent that reliably finishes a task, not one that demos well.
 - 🔍 **Going deeper on RAG and retrieval.** Chunking strategies, hybrid search and rank fusion, and how much context is actually worth paying for — most of it ends up in [rag-service](https://github.com/Dhairya-007/rag-service).
 - 📡 **Growing SyncIT past its MVP.** Two product variants on one Melos monorepo, a shared core package, a log-parsing SDK, and the device communication layer underneath both.
 - ⚙️ **Scaling the backend.** Event-driven architecture, concurrency and fault tolerance, for when sensor data arrives faster than one service can handle.
-- 🌍 **Contributing upstream, one CI blind spot at a time.** 141 changes merged into Apache Camel, Elasticsearch,
-  Quarkus, Home Assistant, typeshed, the PEPs, Netty, Micronaut, more-itertools, drift and the Dart SDK repos — each one
-  a defect the project's own linters and test suites could not reach — and 18 more in review.
-- 🧩 **Keeping fundamentals sharp** in [my DSA repo](https://github.com/Dhairya-007/DSA).
-
----
-
-## 🌍 Open source contributions
-
-I hunt one class of bug on purpose: the kind a project's CI **structurally cannot catch**. A default hidden behind `**kwargs` that `stubtest` has no parameter to compare against. A log line whose placeholders outnumber its arguments. A hand-written catalog entry that drifts from the enum it describes. A format string that throws the moment debug logging is switched on. Linters do not look there, so the defects sit in released code for years.
-
-<p align="left">
-  <img src="https://img.shields.io/badge/merged_upstream-141-0E7C6B?style=for-the-badge&labelColor=0B1020" alt="141 merged upstream" />
-  <img src="https://img.shields.io/badge/projects-18-4F46E5?style=for-the-badge&labelColor=0B1020" alt="18 projects" />
-  <img src="https://img.shields.io/badge/shipped_to-Apache_·_Python_·_Netty_·_Google-7C3AED?style=for-the-badge&labelColor=0B1020" alt="Shipped to Apache, Python, Netty and Google projects" />
-</p>
-
-> Merged into **Apache Camel**, **Elasticsearch**, **Quarkus**, **Home Assistant**, **CPython's PEPs**, **typeshed**, **Netty**, **Micronaut**, **more-itertools**, **drift** and Google's **shelf** and **native** — 141 changes, every one a defect their own tooling could not see. Counts are as of 20 Nov 2026.
-
-### 📦 By project
-
-| Project | Merged | In review |
-| --- | ---: | ---: |
-| [Apache Camel](https://github.com/apache/camel/pulls?q=is%3Apr+author%3ADhairya-007) | 120 | — |
-| [drift](https://github.com/simolus3/drift/pulls?q=is%3Apr+author%3ADhairya-007) | 5 | — |
-| [typeshed](https://github.com/python/typeshed/pulls?q=is%3Apr+author%3ADhairya-007) | 4 | 4 |
-| [the PEPs](https://github.com/python/peps/pulls?q=is%3Apr+author%3ADhairya-007) | 3 | — |
-| [Micronaut](https://github.com/micronaut-projects/micronaut-core/pulls?q=is%3Apr+author%3ADhairya-007) | 2 | 2 |
-| [Elasticsearch](https://github.com/elastic/elasticsearch/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | 1 |
-| [Netty](https://github.com/netty/netty/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | 1 |
-| [more-itertools](https://github.com/more-itertools/more-itertools/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | 1 |
-| [shelf](https://github.com/dart-lang/shelf/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | 1 |
-| [Quarkus](https://github.com/quarkusio/quarkus/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | — |
-| [Home Assistant](https://github.com/home-assistant/core/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | — |
-| [native](https://github.com/dart-lang/native/pulls?q=is%3Apr+author%3ADhairya-007) | 1 | — |
-| [CPython](https://github.com/python/cpython/pulls?q=is%3Apr+author%3ADhairya-007) | — | 1 |
-| [better-ajv-errors](https://github.com/atlassian/better-ajv-errors/pulls?q=is%3Apr+author%3ADhairya-007) | — | 2 |
-| [eslint-plugin-vitest](https://github.com/vitest-dev/eslint-plugin-vitest/pulls?q=is%3Apr+author%3ADhairya-007) | — | 2 |
-| [intl (dart-lang/i18n)](https://github.com/dart-lang/i18n/pulls?q=is%3Apr+author%3ADhairya-007) | — | 1 |
-| [dart-lang/tools](https://github.com/dart-lang/tools/pulls?q=is%3Apr+author%3ADhairya-007) | — | 1 |
-| [docusaurus-openapi-docs](https://github.com/PaloAltoNetworks/docusaurus-openapi-docs/pulls?q=is%3Apr+author%3ADhairya-007) | — | 1 |
-| **Total** | **141** | **18** |
-
-I only count a change once maintainers merge it. Every PR is public: [all merged](https://github.com/search?q=author%3ADhairya-007+is%3Apr+is%3Amerged+-user%3ADhairya-007&type=pullrequests) · [all in review](https://github.com/search?q=author%3ADhairya-007+is%3Apr+is%3Aopen+-user%3ADhairya-007&type=pullrequests).
-
-Every typing change is verified the same way before it goes out: `stubtest` against the real installed package, then `mypy --strict` and `pyright` on a usage file full of `assert_type`, so the error count before and after is the evidence.
 
 ---
 
 ## 📊 GitHub activity
 
 <p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=Dhairya-007&theme=tokyonight&no-frame=true&no-bg=true&column=6&margin-w=8&margin-h=8" alt="GitHub trophies" />
-</p>
-
-<p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Dhairya-007&show_icons=true&include_all_commits=true&count_private=true&theme=tokyonight&hide_border=true&bg_color=0B1020&icon_color=7C3AED&title_color=4F46E5" alt="GitHub stats" />
-</p>
-
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Dhairya-007&theme=tokyonight" alt="Contribution activity" />
-</p>
-
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=Dhairya-007&theme=tokyonight" alt="Repositories per language" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=Dhairya-007&theme=tokyonight" alt="Most committed language" />
-</p>
-
-<p align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/productive-time?username=Dhairya-007&theme=tokyonight&utcOffset=5.5" alt="Productive time" />
   <img src="https://streak-stats.demolab.com?user=Dhairya-007&theme=tokyonight&hide_border=true&background=0B1020&ring=7C3AED&fire=C98A12&currStreakLabel=4F46E5" alt="Contribution streak" />
 </p>
 
 ---
 
-## 🏆 Achievements
+## 🏆 Background
 
 | | |
 | --- | --- |
-| 🎯 **JEE Mains 2020** | All India Rank **8886** — 99.22 percentile among 1.1 million candidates |
-| 🎯 **JEE Advanced 2020** | All India Rank **~10,000** — 95+ percentile among 1.6 lakh candidates |
-| 🎓 **SVNIT Surat, 2024** | Ranked **5th of 135** in B.Tech Computer Science and Engineering, 9.19/10 CGPA |
+| 🎓 **SVNIT Surat, 2024** | B.Tech Computer Science — ranked **5th of 135**, 9.19/10 CGPA |
 | 🧑‍🏫 **ACM NIT Surat** | Executive — organized hackathons and ran technical sessions for juniors |
 | 💻 **MLSA NIT Surat** | Junior Developer — built event websites and supported technical events |
 
 ---
-
 ## 🤝 Let's talk
 
 Happy to talk about full-stack architecture, event-driven backends, or putting LLM agents somewhere they actually earn their keep.
